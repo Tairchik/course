@@ -57,7 +57,7 @@
     <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transport.cs" />
+    <Compile Include="TransportRU.cs" />
     <Compile Include="Worker.cs" />
   </ItemGroup>
   <ItemGroup>
