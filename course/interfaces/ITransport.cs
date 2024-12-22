@@ -8,7 +8,7 @@ namespace course.interfaces
 {
     internal interface ITransport
     {
-        string NameCar { get; set; }
+        string CarName { get; set; }
         string RegisterNumber { get; set; }
     }
 }
