@@ -37,7 +37,7 @@ namespace course
             get { return number; }
             set 
             {
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) || value.Length < 8)
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) || value.Length < 6)
                 {
                     throw new ArgumentException("Неверный номер паспорта");
                 }

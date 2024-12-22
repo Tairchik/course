@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace course
 {
-    internal class RuAddress : IAddress
+    internal class AddressRU : IAddress
     {
         private string country;
         private string region;
         private string locality;
         private string street;
         private string construction;
-        public RuAddress(string country, string region, string locality, string street, string construction)
+        public AddressRU(string country, string region, string locality, string street, string construction)
         {
             Country = country;
             Region = region;
@@ -32,11 +32,14 @@ namespace course
             get { return country; }
             set
             {
-                if (string.IsNullOrEmpty(country))
+                if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException("Неверная страна");
+                    throw new ArgumentException("Неверная страна");
                 }
-                country = value;
+                else
+                {
+                    country = value;
+                }
             }
         }
         public string Region
@@ -44,11 +47,15 @@ namespace course
             get { return region; }
             set
             {
-                if (string.IsNullOrEmpty(region))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException("Неверный регион");
                 }
-                region = value;
+                else
+                {
+                    region = value;
+
+                }
             }
         }
         public string Locality
@@ -56,11 +63,14 @@ namespace course
             get { return locality; }
             set
             {
-                if (string.IsNullOrEmpty(locality))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException("Неверный населенный пункт");
                 }
-                locality = value;
+                else
+                {
+                    locality = value;
+                }
             }
         }
         public string Street
@@ -71,11 +81,14 @@ namespace course
             }
             set
             {
-                if (string.IsNullOrEmpty(street))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException("Неверная улица");
                 }
-                street = value;
+                else
+                {
+                    street = value;
+                }
             }
         }
         public string Construction
@@ -86,14 +99,15 @@ namespace course
             }
             set
             {
-                if (string.IsNullOrEmpty(construction))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException("Неверное сооружение");
                 }
-                construction = value;
+                else
+                {
+                    construction = value;
+                }
             }
-        }
-
-       
+        } 
     }
 }

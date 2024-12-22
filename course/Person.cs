@@ -25,7 +25,7 @@ namespace course
             }
             set
             {
-                if (value != null) 
+                if (value == null) 
                 {
                     throw new ArgumentNullException("Неверный адрес");
                 }

@@ -34,6 +34,18 @@ namespace course
             INNData = inn;
             PensionFundData = pensionFund;
         }
+        public Worker(IAddress address, string name, string surname, string patronymic, IPost post, IBonusSalary bonusSalary,
+            IPassport passport, IINN inn, IPensionFund pensionFund) : base(address)
+        {
+            Name = name;
+            Surname = surname;
+            Patronymic = patronymic;
+            PostData = post;
+            BonusSalary = bonusSalary;
+            PassportData = passport;
+            INNData = inn;
+            PensionFundData = pensionFund;
+        }
         public string Name
         {
             get { return name; } 

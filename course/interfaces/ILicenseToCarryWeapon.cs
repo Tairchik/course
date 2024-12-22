@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace course.interfaces
 {
-    internal interface IBonusSalary
+    internal interface ILicenseToCarryWeapon
     {
-        Decimal BonusSalary_ { get; set; }
-        void CalculateBonusSalary(ISchedule schedule);
+        string LicenseName { get; set; }
     }
 }
