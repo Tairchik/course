@@ -1,4 +1,5 @@
-﻿using System;
+﻿using course.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,26 @@ using System.Threading.Tasks;
 
 namespace course
 {
-    internal class Address
+    internal class RuAddress : IAddress
     {
         private string country;
         private string region;
         private string locality;
         private string street;
         private string construction;
+        public RuAddress(string country, string region, string locality, string street, string construction)
+        {
+            Country = country;
+            Region = region;
+            Locality = locality;
+            Street = street;
+            Construction = construction;
+        }
 
+        public override string ToString() 
+        {
+            return $"{Country} {Region} {Locality} {Street} {Construction}";
+        }
         public string Country
         {
             get { return country; }
@@ -81,13 +94,6 @@ namespace course
             }
         }
 
-        public Address (string country, string region, string locality, string street, string construction) 
-        {
-            Country = country;
-            Region = region;
-            Locality = locality;
-            Street = street;
-            Construction = construction;
-        }
+       
     }
 }
