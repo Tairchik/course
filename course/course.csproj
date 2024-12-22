@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="INNIndividualPerson.cs" />
     <Compile Include="interfaces\IAddress.cs" />
     <Compile Include="interfaces\IBonusSalary.cs" />
     <Compile Include="interfaces\IINN.cs" />

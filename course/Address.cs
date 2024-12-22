@@ -34,7 +34,7 @@ namespace course
             {
                 if (string.IsNullOrEmpty(country))
                 {
-                    throw new ArgumentNullException("Поле <страна> не может быть пустой");
+                    throw new ArgumentNullException("Неверная страна");
                 }
                 country = value;
             }
@@ -46,7 +46,7 @@ namespace course
             {
                 if (string.IsNullOrEmpty(region))
                 {
-                    throw new ArgumentNullException("Поле <страна> не может быть пустой");
+                    throw new ArgumentNullException("Неверный регион");
                 }
                 region = value;
             }
@@ -58,7 +58,7 @@ namespace course
             {
                 if (string.IsNullOrEmpty(locality))
                 {
-                    throw new ArgumentNullException("Поле <страна> не может быть пустой");
+                    throw new ArgumentNullException("Неверный населенный пункт");
                 }
                 locality = value;
             }
@@ -73,7 +73,7 @@ namespace course
             {
                 if (string.IsNullOrEmpty(street))
                 {
-                    throw new ArgumentNullException("Поле <страна> не может быть пустой");
+                    throw new ArgumentNullException("Неверная улица");
                 }
                 street = value;
             }
@@ -88,7 +88,7 @@ namespace course
             {
                 if (string.IsNullOrEmpty(construction))
                 {
-                    throw new ArgumentNullException("Поле <страна> не может быть пустой");
+                    throw new ArgumentNullException("Неверное сооружение");
                 }
                 construction = value;
             }

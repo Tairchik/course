@@ -8,10 +8,6 @@ namespace course.interfaces
 {
     internal interface IINN
     {
-        string RegionNumber { get; set; }
-        string TaxNumber { get; set; }
-        string IndividualNumber { get; set; }
-        string RandomNumber { get; set; }
-
+        string Number { get; set; }
     }
 }
