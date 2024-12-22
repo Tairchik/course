@@ -45,7 +45,13 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="interfaces\IAddress.cs" />
+    <Compile Include="interfaces\Iinn.cs" />
+    <Compile Include="interfaces\IPassport.cs" />
+    <Compile Include="interfaces\IPensionFund.cs" />
     <Compile Include="interfaces\IPerson.cs" />
+    <Compile Include="interfaces\IPost.cs" />
+    <Compile Include="interfaces\ITransport.cs" />
+    <Compile Include="interfaces\IWorker.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
