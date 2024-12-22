@@ -8,5 +8,6 @@ namespace course.interfaces
 {
     internal interface IPensionFund
     {
+        string Number { get; set; }
     }
 }
