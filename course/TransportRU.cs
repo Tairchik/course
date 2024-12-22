@@ -10,16 +10,10 @@ namespace course
 {
     internal class TransportRU : ITransport
     {
-
         private string registerNumber;
         private string carName;
         string patternRUCar = @"^[АВЕКМНОРСТУХ]{1}[0-9]{3}[АВЕКМНОРСТУХ]{2}[- ]?[0-9]{2,3}$";
-        string patternEACar = @"^[ABEKMHOPCTYX]{1}[0-9]{3}[ABEKMHOPCTYX]{2}[- ]?[0-9]{2,3}$";
-        string patternRUMotorcycle = @"^[АВЕКМНОРСТУХ]{2}[0-9]{4}[- ]?[0-9]{2,3}$";
-        string patternEAMotorcycle = @"^[ABEKMHOPCTYX]{2}[0-9]{4}[- ]?[0-9]{2,3}$";
-
-
-
+        string patternRUMotorcycle = @"^[0-9]{4}[АВЕКМНОРСТУХ]{2}[- ]?[0-9]{2,3}$"; 
 
         public TransportRU(string registerNumber, string carName)
         {
@@ -57,14 +51,13 @@ namespace course
                 {
                     throw new ArgumentException("Неверный регистрационный номер транспорта");
                 }
-                else if (!Regex.IsMatch(value.ToUpper(), patternRUCar) && !Regex.IsMatch(value.ToUpper(), patternEACar) 
-                    && !Regex.IsMatch(value.ToUpper(), patternEAMotorcycle) && !Regex.IsMatch(value.ToUpper(), patternRUMotorcycle))
+                else if (!Regex.IsMatch(value.ToUpper(), patternRUCar) && !Regex.IsMatch(value.ToUpper(), patternRUMotorcycle))
                 {
                     throw new ArgumentException("Неверный регистрационный номер транспорта");
                 }
                 else
                 {
-                    registerNumber = value;
+                    registerNumber = value.ToUpper();
                 }
             }
         }
