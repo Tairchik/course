@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace course.interfaces
 {
-    internal interface IPerson
+    internal interface IBonusSalary
     {
-        IAddress Address { get; set; }
+        Decimal BonusSalary { get; set; }
+        void CalculateBonusSalary();
     }
 }

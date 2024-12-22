@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace course.interfaces
 {
-    internal class Iinn
+    internal interface IINN
     {
+        string RegionNumber { get; set; }
+        string TaxNumber { get; set; }
+        string IndividualNumber { get; set; }
+        string RandomNumber { get; set; }
+
     }
 }
