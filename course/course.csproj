@@ -54,6 +54,7 @@
     <Compile Include="interfaces\IPost.cs" />
     <Compile Include="interfaces\ITransport.cs" />
     <Compile Include="interfaces\IWorker.cs" />
+    <Compile Include="PassportRu.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />
