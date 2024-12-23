@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace course.interfaces
 {
-    internal class Security : IWorker, ISecurity
+    internal class Security : ISecurity
     {
         private IWeapon weapon;
         private ILicenseToCarryWeapon licenseToCarryWeapon;

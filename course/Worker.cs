@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace course
 {
-    internal class Worker : IPerson, IWorker
+    internal class Worker : IWorker
     {
         private string name;
         private string surname;

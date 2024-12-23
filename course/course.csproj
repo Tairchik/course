@@ -49,8 +49,13 @@
     <Compile Include="BonusSalary.cs" />
     <Compile Include="interfaces\IAddress.cs" />
     <Compile Include="interfaces\IBonusSalary.cs" />
+    <Compile Include="interfaces\IConsumer.cs" />
+    <Compile Include="interfaces\IContract.cs" />
+    <Compile Include="interfaces\IContractPayment.cs" />
+    <Compile Include="interfaces\IEvent.cs" />
     <Compile Include="interfaces\IINN.cs" />
     <Compile Include="interfaces\ILicenseToCarryWeapon.cs" />
+    <Compile Include="IndividualConsumer.cs" />
     <Compile Include="interfaces\IPassport.cs" />
     <Compile Include="interfaces\IPensionFund.cs" />
     <Compile Include="interfaces\IPerson.cs" />
@@ -60,6 +65,7 @@
     <Compile Include="interfaces\ITransport.cs" />
     <Compile Include="interfaces\IWorker.cs" />
     <Compile Include="interfaces\IWeapon.cs" />
+    <Compile Include="LegalConsumer.cs" />
     <Compile Include="LicenseToCarryWeapon.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="Security.cs" />

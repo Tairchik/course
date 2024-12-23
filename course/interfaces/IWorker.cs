@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace course.interfaces
 {
-    internal interface IWorker
+    internal interface IWorker : IPerson
     {
         string Name { get; set; }
         string Surname { get; set; }
