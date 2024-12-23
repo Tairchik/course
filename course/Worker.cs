@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace course
 {
-    internal class Worker : Person, IWorker
+    internal class Worker : IPerson, IWorker
     {
         private string name;
         private string surname;
@@ -20,10 +20,13 @@ namespace course
         private IINN innData;
         private IPensionFund pensionFundData;
 
+        private IAddress address;
 
-        public Worker(IAddress address, string name, string surname, string patronymic, IPost post, IBonusSalary bonusSalary, 
-            ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund) : base(address)
+
+        public Worker(string name, string surname, string patronymic, IAddress address, IPost post, IBonusSalary bonusSalary, 
+            ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund)
         {
+            Address = address;
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
@@ -34,9 +37,10 @@ namespace course
             INNData = inn;
             PensionFundData = pensionFund;
         }
-        public Worker(IAddress address, string name, string surname, string patronymic, IPost post, IBonusSalary bonusSalary,
-            IPassport passport, IINN inn, IPensionFund pensionFund) : base(address)
+        public Worker(string name, string surname, string patronymic, IAddress address, IPost post, IBonusSalary bonusSalary,
+            IPassport passport, IINN inn, IPensionFund pensionFund) 
         {
+            Address = address;
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
@@ -45,6 +49,25 @@ namespace course
             PassportData = passport;
             INNData = inn;
             PensionFundData = pensionFund;
+        }
+
+        public IAddress Address
+        {
+            get
+            {
+                return address;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Неверный адрес");
+                }
+                else
+                {
+                    address = value;
+                }
+            }
         }
         public string Name
         {

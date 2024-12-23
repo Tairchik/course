@@ -65,7 +65,6 @@
     <Compile Include="Security.cs" />
     <Compile Include="PensionFoundRU.cs" />
     <Compile Include="PassportRu.cs" />
-    <Compile Include="Person.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
