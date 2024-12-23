@@ -45,10 +45,12 @@
   <ItemGroup>
     <Compile Include="AddressRU.cs" />
     <Compile Include="DayAndTime.cs" />
+    <Compile Include="EventType.cs" />
     <Compile Include="INNIndividualPerson.cs" />
     <Compile Include="BonusSalary.cs" />
     <Compile Include="interfaces\IAddress.cs" />
     <Compile Include="interfaces\IBonusSalary.cs" />
+    <Compile Include="interfaces\ICalculateTotalAmount.cs" />
     <Compile Include="interfaces\IConsumer.cs" />
     <Compile Include="interfaces\IContract.cs" />
     <Compile Include="interfaces\IContractPayment.cs" />
@@ -62,11 +64,13 @@
     <Compile Include="interfaces\IPost.cs" />
     <Compile Include="interfaces\ISchedule.cs" />
     <Compile Include="interfaces\ISecurity.cs" />
+    <Compile Include="interfaces\ISingleEvent.cs" />
     <Compile Include="interfaces\ITransport.cs" />
     <Compile Include="interfaces\IWorker.cs" />
     <Compile Include="interfaces\IWeapon.cs" />
     <Compile Include="LegalConsumer.cs" />
     <Compile Include="LicenseToCarryWeapon.cs" />
+    <Compile Include="ObjectType.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="PensionFoundRU.cs" />

@@ -8,5 +8,10 @@ namespace course.interfaces
 {
     internal interface IEvent
     {
+        IAddress Address { get; set; }
+        DateTime DateStart { get; set; }
+        DateTime DateEnd { get; set; }
+        double Square { get; set; }
+        int NumOfPeople { get; set; }
     }
 }
