@@ -9,17 +9,17 @@ namespace course
 {
     internal class Schedule : ISchedule
     {
-        private List<DayAndTime> _schedule;
+        private List<DateTime> _schedule;
         public Schedule()
         {
             Schedule_ = null;
         }
-        public Schedule(List<DayAndTime> schedule)
+        public Schedule(List<DateTime> schedule)
         {
             Schedule_ = schedule;
         }
 
-        public List<DayAndTime> Schedule_
+        public List<DateTime> Schedule_
         {
             get
             {
@@ -28,10 +28,10 @@ namespace course
             set
             {
                 _schedule = value;
-                SortSchedule();
+                _schedule.Sort();
             }
         }
-        public void Add(DayAndTime day)
+        public void Add(DateTime day)
         {
             if (_schedule == null)
             {
@@ -40,7 +40,7 @@ namespace course
             else
             {
                 int count = 0;
-                foreach (DayAndTime t in _schedule)
+                foreach (var t in _schedule)
                 {
                     if (t.CompareTo(day) > 0)
                     {
@@ -55,12 +55,12 @@ namespace course
                 }
             }
         }
-        public void Change(DayAndTime day, DayAndTime dayChange) 
+        public void Change(DateTime day, DateTime dayChange) 
         {
             if (_schedule != null)
             {
                 int count = 0;
-                foreach (DayAndTime t in _schedule)
+                foreach (var t in _schedule)
                 {
                     if (t.Equals(dayChange))
                     {
@@ -79,7 +79,7 @@ namespace course
                 throw new ArgumentException("График пуст");
             }
         }
-        public void DeleteDay(DayAndTime day)
+        public void DeleteDay(DateTime day)
         {
             if (_schedule != null)
             {
@@ -91,13 +91,6 @@ namespace course
             else
             {
                 throw new ArgumentNullException("График пуст");
-            }
-        }
-        public void SortSchedule()
-        {
-            if (_schedule != null)
-            {
-                _schedule.Sort((a, b) => a.Date.CompareTo(b.Date));
             }
         }
     }

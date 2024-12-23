@@ -8,10 +8,10 @@ namespace course.interfaces
 {
     internal interface ISchedule
     {
-        List<DayAndTime> Schedule_ { get; set; }
-        void Add(DayAndTime day);
-        void Change(DayAndTime day, DayAndTime dayChange);
-        void DeleteDay(DayAndTime day);
+        List<DateTime> Schedule_ { get; set; }
+        void Add(DateTime day);
+        void Change(DateTime day, DateTime dayChange);
+        void DeleteDay(DateTime day);
         //void GenerateSchedule();
 
     }

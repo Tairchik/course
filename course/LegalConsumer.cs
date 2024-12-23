@@ -14,6 +14,21 @@ namespace course
         private IAddress address;
         private List<IContract> contracts;
 
+        public LegalConsumer(string companyName, IAddress address, IContract contract) 
+        { 
+            CompanyName = companyName;
+            Address = address;
+            contracts.Add(contract);
+        }
+        public LegalConsumer(string companyName, IAddress address, List<IContract> contract)
+        {
+            CompanyName = companyName;
+            Address = address;
+            foreach (var item in contract)
+            {
+                contracts.Add(item);
+            }
+        }
         public List<IContract> Contracts 
         {
             get {  return contracts; }

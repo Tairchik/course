@@ -40,7 +40,6 @@ namespace course
                 if (!char.IsDigit(c))
                     return false;
             }
-
             return true;
         }
     }
