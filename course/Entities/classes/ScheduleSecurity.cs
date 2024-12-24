@@ -1,13 +1,12 @@
-﻿using course.interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities.classes
 {
-    internal class Schedule : ISchedule
+    internal class ScheduleSecurity
     {
         private List<DateTime> _schedule;
 
@@ -30,29 +29,28 @@ namespace course
                 int count = 0;
                 foreach (var t in _schedule)
                 {
-                    if (t.CompareTo(day) > 0)
+                    if (t >= day)
                     {
-                        _schedule.Insert(count, t);
-                        break;
-                    }
-                    else if (t.CompareTo(day) == 0)
-                    {
-                        throw new ArgumentException($"Неверно значение. На изменяемую дату назначен день");
+                        if ((day - t).Days > 2)
+                        {
+                            _schedule.Insert(count, day);
+                            break;
+                        }    
+                        else throw new ArgumentException($"Нельзя назначить дату на этот день");
                     }
                     count++;
-
                 }
                 if (count == _schedule.Count)
                 {
-                    if (_schedule[count].CompareTo(day) == 0)
+                    if ((day - _schedule[count]).Days > 2)
                     {
-                        throw new ArgumentException($"Неверно значение. На изменяемую дату назначен день");
+                        _schedule.Add(day);
                     }
-                    _schedule.Add(day);
+                    else throw new ArgumentException($"Нельзя назначить дату на этот день");
                 }
             }
         }
-        public void Change(DateTime day, DateTime dayChange) 
+        public void Change(DateTime day, DateTime dayChange)
         {
             if (_schedule != null)
             {
@@ -66,7 +64,7 @@ namespace course
                     }
                     count++;
                 }
-                if (count == _schedule.Count) 
+                if (count == _schedule.Count)
                 {
                     throw new ArgumentException($"Значение {dayChange.ToString()} не найдено");
                 }
@@ -82,7 +80,7 @@ namespace course
             {
                 if (!_schedule.Remove(day))
                 {
-                    throw new ArgumentException($"Значение {day.ToString()} не найдено");                
+                    throw new ArgumentException($"Значение {day.ToString()} не найдено");
                 }
             }
             else
@@ -91,4 +89,5 @@ namespace course
             }
         }
     }
+}
 }
