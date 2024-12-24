@@ -1,4 +1,5 @@
-﻿using course.interfaces;
+﻿using course.Entities.classes;
+using course.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,16 @@ namespace course
     {
         static void Main(string[] args)
         {
-            Security security = new Security("Test", "Иванов", "Петрович", new AddressRU("Russia", "Новосибирская область", "Новосибирск", "Тюленина", "дом 28"), new Post("Старший охранник", 45000m), new BonusSalary(5000),
-                new PassportRu("5020", "042490"), new INNIndividualPerson("123456789012"), new PensionFoundRU("123456789012"),
-                new Weapon("Ak-47", "AK1232"), new LicenseToCarryWeapon("12332112"), new Schedule());
-            Console.WriteLine(security.Name);
-            Console.WriteLine(security.Surname);
+            
+            IAddress address = new AddressRU("Russia", "Новосибирская область", "Новосибирск", "Тюленина", "дом 28");
 
+            DateTime dateStart = new DateTime(2024, 12, 24, 10, 0, 0);
+            DateTime dateEnd = new DateTime(2024, 12, 24, 15, 0 , 0);
+
+            Console.WriteLine(dateStart.CompareTo(dateEnd));
+            IEvent _event = new SingleEvent(address, dateStart, dateEnd, EventType.Public, 200);
+
+   
         }
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace course.interfaces
 {
-    internal interface ICalculateTotalAmount
+    internal interface ISingleEvent : IEvent
     {
-        int CalculateTotalAmount(IEvent eventData);
+        int Peoples { get; set; }
+        EventType EventType_ { get; set; }
     }
 }

@@ -43,47 +43,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressRU.cs" />
-    <Compile Include="DayAndTime.cs" />
-    <Compile Include="EventType.cs" />
-    <Compile Include="INNIndividualPerson.cs" />
-    <Compile Include="BonusSalary.cs" />
-    <Compile Include="interfaces\IAddress.cs" />
-    <Compile Include="interfaces\IBonusSalary.cs" />
-    <Compile Include="interfaces\ICalculateTotalAmount.cs" />
-    <Compile Include="interfaces\IConsumer.cs" />
-    <Compile Include="interfaces\IContract.cs" />
-    <Compile Include="interfaces\IContractPayment.cs" />
-    <Compile Include="interfaces\IEvent.cs" />
-    <Compile Include="interfaces\IINN.cs" />
-    <Compile Include="interfaces\ILicenseToCarryWeapon.cs" />
-    <Compile Include="IndividualConsumer.cs" />
-    <Compile Include="interfaces\IPassport.cs" />
-    <Compile Include="interfaces\IPensionFund.cs" />
-    <Compile Include="interfaces\IPerson.cs" />
-    <Compile Include="interfaces\IPost.cs" />
-    <Compile Include="interfaces\ISchedule.cs" />
-    <Compile Include="interfaces\ISecurity.cs" />
-    <Compile Include="interfaces\ISingleEvent.cs" />
-    <Compile Include="interfaces\ITransport.cs" />
-    <Compile Include="interfaces\IWorker.cs" />
-    <Compile Include="interfaces\IWeapon.cs" />
-    <Compile Include="LegalConsumer.cs" />
-    <Compile Include="LicenseToCarryWeapon.cs" />
-    <Compile Include="ObjectType.cs" />
-    <Compile Include="Schedule.cs" />
-    <Compile Include="Security.cs" />
-    <Compile Include="PensionFoundRU.cs" />
-    <Compile Include="PassportRu.cs" />
-    <Compile Include="Post.cs" />
+    <Compile Include="Entities\classes\AddressRU.cs" />
+    <Compile Include="Entities\classes\CountTotalAmount.cs" />
+    <Compile Include="Entities\classes\DayAndTime.cs" />
+    <Compile Include="Entities\classes\SingleEvent.cs" />
+    <Compile Include="Entities\enums\EventType.cs" />
+    <Compile Include="Entities\classes\INNIndividualPerson.cs" />
+    <Compile Include="Entities\classes\BonusSalary.cs" />
+    <Compile Include="Entities\interfaces\IAddress.cs" />
+    <Compile Include="Entities\interfaces\IBonusSalary.cs" />
+    <Compile Include="Entities\interfaces\ICalculateTotalAmount.cs" />
+    <Compile Include="Entities\interfaces\IConsumer.cs" />
+    <Compile Include="Entities\interfaces\IContract.cs" />
+    <Compile Include="Entities\interfaces\IContractPayment.cs" />
+    <Compile Include="Entities\interfaces\IEvent.cs" />
+    <Compile Include="Entities\interfaces\IINN.cs" />
+    <Compile Include="Entities\interfaces\ILicenseToCarryWeapon.cs" />
+    <Compile Include="Entities\classes\IndividualConsumer.cs" />
+    <Compile Include="Entities\interfaces\IMultiEvent.cs" />
+    <Compile Include="Entities\interfaces\IPassport.cs" />
+    <Compile Include="Entities\interfaces\IPensionFund.cs" />
+    <Compile Include="Entities\interfaces\IPerson.cs" />
+    <Compile Include="Entities\interfaces\IPost.cs" />
+    <Compile Include="Entities\interfaces\ISchedule.cs" />
+    <Compile Include="Entities\interfaces\ISecurity.cs" />
+    <Compile Include="Entities\interfaces\ISingleEvent.cs" />
+    <Compile Include="Entities\interfaces\ITransport.cs" />
+    <Compile Include="Entities\interfaces\IWorker.cs" />
+    <Compile Include="Entities\interfaces\IWeapon.cs" />
+    <Compile Include="Entities\classes\LegalConsumer.cs" />
+    <Compile Include="Entities\classes\LicenseToCarryWeapon.cs" />
+    <Compile Include="Entities\enums\ObjectType.cs" />
+    <Compile Include="Entities\classes\Schedule.cs" />
+    <Compile Include="Entities\classes\Security.cs" />
+    <Compile Include="Entities\classes\PensionFoundRU.cs" />
+    <Compile Include="Entities\classes\PassportRu.cs" />
+    <Compile Include="Entities\classes\Post.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransportRU.cs" />
-    <Compile Include="Weapon.cs" />
-    <Compile Include="Worker.cs" />
+    <Compile Include="Entities\classes\TransportRU.cs" />
+    <Compile Include="Entities\classes\Weapon.cs" />
+    <Compile Include="Entities\classes\Worker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
