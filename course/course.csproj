@@ -46,6 +46,8 @@
     <Compile Include="Entities\classes\AddressRU.cs" />
     <Compile Include="Entities\classes\CalculateTotalAmountMultiEvent.cs" />
     <Compile Include="Entities\classes\CalculateTotalAmountSingleEvent.cs" />
+    <Compile Include="Entities\classes\ContractPaymentForEvent.cs" />
+    <Compile Include="Entities\classes\ContractPaymentForObject.cs" />
     <Compile Include="Entities\classes\DayAndTime.cs" />
     <Compile Include="Entities\classes\MultiEvent.cs" />
     <Compile Include="Entities\classes\SingleEvent.cs" />

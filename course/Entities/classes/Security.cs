@@ -19,7 +19,7 @@ namespace course.interfaces
         private string surname;
         private string patronymic;
         private IPost postData;
-        private IBonusSalary bonusSalary;
+        private Decimal bonusSalary;
         private ITransport transportData;
         private IPassport passportData;
         private IINN innData;
@@ -34,7 +34,7 @@ namespace course.interfaces
             Patronymic = patronymic;
             PostData = post;
             BonusSalary = bonusSalary;
-            TransportData = transport; // +
+            TransportData = transport; 
             PassportData = passport;
             INNData = inn;
             PensionFundData = pensionFund;
@@ -43,22 +43,6 @@ namespace course.interfaces
             Schedule = schedule;
         }
 
-        public Security(string name, string surname, string patronymic, IAddress address, IPost post, IBonusSalary bonusSalary,
-            IPassport passport, IINN inn, IPensionFund pensionFund, IWeapon weapon, ILicenseToCarryWeapon licenseToCarryWeapon, ISchedule schedule)
-        {
-            Address = address;
-            Name = name;
-            Surname = surname;
-            Patronymic = patronymic;
-            PostData = post;
-            BonusSalary = bonusSalary;
-            PassportData = passport;
-            INNData = inn;
-            PensionFundData = pensionFund;
-            Weapon = weapon;
-            LicenseToCarryWeapon = licenseToCarryWeapon;
-            Schedule = schedule;
-        }
         public IAddress Address
         {
             get
@@ -82,14 +66,7 @@ namespace course.interfaces
             get { return weapon; }
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentException("Неверное оружие");
-                }
-                else 
-                {
-                    weapon = value;
-                }
+                weapon = value;
             }
         }
         public ILicenseToCarryWeapon LicenseToCarryWeapon 
@@ -97,14 +74,7 @@ namespace course.interfaces
             get { return licenseToCarryWeapon; }
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentException("Неверное лицензия на ношение оружия");
-                }
-                else
-                {
-                    licenseToCarryWeapon = value;
-                }
+               licenseToCarryWeapon = value;
             }
         }
         public ISchedule Schedule 
@@ -175,12 +145,12 @@ namespace course.interfaces
                 }
             }
         }
-        public IBonusSalary BonusSalary
+        public Decimal BonusSalary
         {
             get { return bonusSalary; }
             set
             {
-                if (value == null)
+                if (value < 0)
                 {
                     throw new ArgumentException("Неверная надбавка к зарплате");
                 }
@@ -195,14 +165,7 @@ namespace course.interfaces
             get { return transportData; }
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentException("Неверный транспорт");
-                }
-                else
-                {
-                    transportData = value;
-                }
+                transportData = value;
             }
         }
         public IPassport PassportData

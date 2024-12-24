@@ -12,7 +12,7 @@ namespace course.Entities.classes
     {
         public int CalculateTotalAmount(IMultiEvent eventData)
         {
-            return (int)Math.Ceiling(eventData.Square / ((double)eventData.ObjectType_ / 10));
+            return (int)Math.Ceiling(eventData.Square / 50 * ((double)eventData.ObjectType_ / 10));
         }
     }
 }

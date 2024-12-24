@@ -8,12 +8,11 @@ namespace course.interfaces
 {
     internal interface IContract
     {
-        string ContractNumber { get;}
-        DateTime DateStart { get; set; }
+        int ID { get;}
+        DateTime DateStart { get; }
         DateTime DateEnd { get; set; }
         IEvent Event { get; set; }
-       
-        IContractPayment ContractPayment { get;} 
+        IConsumer Consumer { get; set; }
         
     }
 }

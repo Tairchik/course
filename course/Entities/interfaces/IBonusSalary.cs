@@ -9,6 +9,5 @@ namespace course.interfaces
     internal interface IBonusSalary
     {
         Decimal BonusSalary_ { get; set; }
-        void CalculateBonusSalary(ISchedule schedule);
     }
 }

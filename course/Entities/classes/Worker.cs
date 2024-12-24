@@ -14,14 +14,13 @@ namespace course
         private string surname;
         private string patronymic;
         private IPost postData;
-        private IBonusSalary bonusSalary;
+        private Decimal bonusSalary;
         private ITransport transportData;
         private IPassport passportData;
         private IINN innData;
         private IPensionFund pensionFundData;
 
         private IAddress address;
-
 
         public Worker(string name, string surname, string patronymic, IAddress address, IPost post, IBonusSalary bonusSalary, 
             ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund)
@@ -33,19 +32,6 @@ namespace course
             PostData = post;
             BonusSalary = bonusSalary;
             TransportData = transport;
-            PassportData = passport;
-            INNData = inn;
-            PensionFundData = pensionFund;
-        }
-        public Worker(string name, string surname, string patronymic, IAddress address, IPost post, IBonusSalary bonusSalary,
-            IPassport passport, IINN inn, IPensionFund pensionFund) 
-        {
-            Address = address;
-            Name = name;
-            Surname = surname;
-            Patronymic = patronymic;
-            PostData = post;
-            BonusSalary = bonusSalary;
             PassportData = passport;
             INNData = inn;
             PensionFundData = pensionFund;
@@ -129,12 +115,12 @@ namespace course
                 }
             }
         }
-        public IBonusSalary BonusSalary
+        public Decimal BonusSalary
         {
             get { return bonusSalary; }
             set 
             {
-                if (value == null)
+                if (value < 0)
                 {
                     throw new ArgumentException("Неверная надбавка к зарплате");
                 }
@@ -149,14 +135,7 @@ namespace course
             get { return transportData; }
             set
             {
-                if (value == null)
-                {
-                    throw new ArgumentException("Неверный транспорт");
-                }
-                else
-                {
-                    transportData = value;
-                }
+                transportData = value;
             }
         }
         public IPassport PassportData

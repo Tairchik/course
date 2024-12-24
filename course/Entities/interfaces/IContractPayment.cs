@@ -8,5 +8,6 @@ namespace course.interfaces
 {
     internal interface IContractPayment
     {
+        Decimal CalculateCost(List<ISecurity> securities);
     }
 }

@@ -12,7 +12,7 @@ namespace course.interfaces
         string Surname { get; set; }
         string Patronymic { get; set; }
         IPost PostData  { get; set; }
-        IBonusSalary BonusSalary { get; set; }
+        Decimal BonusSalary { get; set; }
         ITransport TransportData { get; set; }
         IPassport PassportData { get; set; }
         IINN INNData { get; set; }

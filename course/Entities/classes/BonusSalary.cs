@@ -30,9 +30,5 @@ namespace course.interfaces
                 }
             }
         }
-        public void CalculateBonusSalary(ISchedule schedule)
-        {
-            BonusSalary_ = 1000; 
-        }
     }
 }
