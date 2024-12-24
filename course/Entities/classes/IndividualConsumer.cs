@@ -13,8 +13,20 @@ namespace course.interfaces
         private string patronymic;
         private IAddress address;
         private List<IContract> contracts;
+        
 
+        public IndividualConsumer(string name, string surname, string patronymic, IAddress address)
+        {
+            Name = name;
+            Surname = surname;
+            Patronymic = patronymic;
+            Address = address;
+        }
 
+        public void AddContract(IContract contract)
+        {
+            contracts.Add(contract);
+        }
         public IAddress Address
         {
             get
@@ -36,18 +48,7 @@ namespace course.interfaces
         public List<IContract> Contracts
         {
             get { return contracts; }
-            set
-            {
 
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Неверный список контрактов");
-                }
-                else
-                {
-                    contracts = value;
-                }
-            }
         }
         public string Name
         {

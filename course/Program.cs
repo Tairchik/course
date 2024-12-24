@@ -17,8 +17,10 @@ namespace course
             
             IAddress address = new AddressRU("Russia", "Новосибирская область", "Новосибирск", "Тюленина", "дом 28");
 
-            DateTime dateStart = new DateTime(2024, 12, 24, 10, 0, 0);
-            DateTime dateEnd = new DateTime(2024, 12, 24, 15, 0 , 0);
+            DateTime dateStart = new DateTime(2024, 12, 24);
+            DateTime dateEnd = new DateTime(2024, 12, 24);
+
+            Console.WriteLine((dateEnd - dateStart).Days);
 
             Console.WriteLine(dateStart.CompareTo(dateEnd));
             ISingleEvent _event = new SingleEvent(address, dateStart, dateEnd, EventType.Public, 250, new CalculateTotalAmountSingleEvent());

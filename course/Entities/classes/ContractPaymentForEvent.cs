@@ -17,7 +17,7 @@ namespace course.Entities.classes
 
             foreach (var security in securities)
             {
-                sum = sum + security.BonusSalary;
+                sum += security.BonusSalary;
                 count ++;
             }
             return oneHourCost * count * 24 + sum;

@@ -8,6 +8,7 @@ namespace course.interfaces
 {
     internal interface IConsumer : IPerson
     {
-        List<IContract> Contracts { get; set; }
+        List<IContract> Contracts { get; }
+        void AddContract(IContract contract);
     }
 }

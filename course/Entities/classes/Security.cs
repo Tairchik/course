@@ -25,7 +25,7 @@ namespace course.interfaces
         private IINN innData;
         private IPensionFund pensionFundData;
 
-        public Security(string name, string surname, string patronymic, IAddress address, IPost post, IBonusSalary bonusSalary,
+        public Security(string name, string surname, string patronymic, IAddress address, IPost post, Decimal bonusSalary,
             ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund, IWeapon weapon, ILicenseToCarryWeapon licenseToCarryWeapon, ISchedule schedule) 
         {
             Address = address;

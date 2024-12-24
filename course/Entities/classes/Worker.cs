@@ -22,7 +22,7 @@ namespace course
 
         private IAddress address;
 
-        public Worker(string name, string surname, string patronymic, IAddress address, IPost post, IBonusSalary bonusSalary, 
+        public Worker(string name, string surname, string patronymic, IAddress address, IPost post, Decimal bonusSalary, 
             ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund)
         {
             Address = address;
