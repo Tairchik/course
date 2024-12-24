@@ -1,55 +1,55 @@
-﻿using course.interfaces;
+﻿using course.Entities.interfaces;
+using course.interfaces;
+using course.YourProjectNamespace.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace course.Entities.classes
 {
-    internal class SingleEvent : ISingleEvent
+    internal class MultiEvent : IMultiEvent
     {
         private IAddress address;
         private DateTime dateStart;
         private DateTime dateEnd;
-        private EventType _eventType;
-        private int peoples;
-        private readonly ICalculateTotalAmount<ISingleEvent> _calculate;
+        private ObjectType _objectType;
+        private double square;
+        private readonly ICalculateTotalAmount<IMultiEvent> _calculate;
 
-        public SingleEvent (IAddress address, DateTime dateStart, DateTime dateEnd, EventType eventType, int peoples, ICalculateTotalAmount<ISingleEvent> calculate)
+        public MultiEvent(IAddress address, DateTime dateStart, DateTime dateEnd, ObjectType objectType, double square, ICalculateTotalAmount<IMultiEvent> calculate)
         {
             Address = address;
             DateStart = dateStart;
             DateEnd = dateEnd;
-            Peoples = peoples;
-            EventType_ = eventType;
+            Square = square;
+            ObjectType_ = objectType;
             _calculate = calculate;
         }
-
-        public int CalculateAmount() 
+        public int CalculateAmount()
         {
             return _calculate.CalculateTotalAmount(this);
         }
-        public EventType EventType_
+        public ObjectType ObjectType_
         {
             get
             {
-                return _eventType;
+                return _objectType;
             }
             set
             {
-                _eventType = value;
+                _objectType = value;
             }
         }
 
-        public int Peoples
+        public double Square
         {
-            get 
-            { 
-                return peoples; 
+            get
+            {
+                return square;
             }
-            set 
+            set
             {
                 if (value <= 0)
                 {
@@ -57,7 +57,7 @@ namespace course.Entities.classes
                 }
                 else
                 {
-                    peoples = value;
+                    square = value;
                 }
             }
         }
@@ -68,11 +68,11 @@ namespace course.Entities.classes
             {
                 return dateStart;
             }
-            set 
-            { 
-                if (dateEnd == new DateTime()) 
+            set
+            {
+                if (dateEnd == new DateTime())
                 {
-                    if (value == null) 
+                    if (value == null)
                     {
                         throw new ArgumentNullException("Неверное значение начало дня");
                     }
@@ -87,7 +87,7 @@ namespace course.Entities.classes
                     {
                         throw new ArgumentNullException("Неверное значение начало дня");
                     }
-                    else if (value.CompareTo(dateEnd) <= 0) 
+                    else if (value.CompareTo(dateEnd) <= 0)
                     {
                         dateStart = value;
                     }
@@ -96,7 +96,7 @@ namespace course.Entities.classes
                         throw new ArgumentException("Дата окончания не может быть раньше даты начала");
                     }
                 }
-            } 
+            }
         }
 
         public DateTime DateEnd

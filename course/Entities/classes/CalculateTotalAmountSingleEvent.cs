@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace course.Entities.classes
 {
-    internal class CountTotalAmountSingleEvent : ICalculateTotalAmount<ISingleEvent>
+    internal class CalculateTotalAmountSingleEvent : ICalculateTotalAmount<ISingleEvent>
     {
         public int CalculateTotalAmount(ISingleEvent eventData) 
         {

@@ -10,7 +10,7 @@ namespace course.Entities.interfaces
 {
     internal interface IMultiEvent : IEvent
     {
-        ObjectType objectType { get; set; }
+        ObjectType ObjectType_ { get; set; }
         double Square { get; set; }
     }
 }

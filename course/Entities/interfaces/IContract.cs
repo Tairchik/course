@@ -12,6 +12,7 @@ namespace course.interfaces
         DateTime DateStart { get; set; }
         DateTime DateEnd { get; set; }
         IEvent Event { get; set; }
+       
         IContractPayment ContractPayment { get;} 
         
     }

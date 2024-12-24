@@ -10,5 +10,6 @@ namespace course.interfaces
     {
         int Peoples { get; set; }
         EventType EventType_ { get; set; }
+
     }
 }

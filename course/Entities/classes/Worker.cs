@@ -110,7 +110,7 @@ namespace course
                 }
                 else
                 {
-                    name = value;
+                    patronymic = value;
                 }
             }
         }

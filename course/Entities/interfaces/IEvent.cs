@@ -11,5 +11,6 @@ namespace course.interfaces
         IAddress Address { get; set; }
         DateTime DateStart { get; set; }
         DateTime DateEnd { get; set; }
+        int CalculateAmount();
     }
 }

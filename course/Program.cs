@@ -1,5 +1,7 @@
 ﻿using course.Entities.classes;
+using course.Entities.interfaces;
 using course.interfaces;
+using course.YourProjectNamespace.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +21,12 @@ namespace course
             DateTime dateEnd = new DateTime(2024, 12, 24, 15, 0 , 0);
 
             Console.WriteLine(dateStart.CompareTo(dateEnd));
-            IEvent _event = new SingleEvent(address, dateStart, dateEnd, EventType.Public, 200);
+            ISingleEvent _event = new SingleEvent(address, dateStart, dateEnd, EventType.Public, 250, new CalculateTotalAmountSingleEvent());
+            IMultiEvent mEvent = new MultiEvent(address, dateStart, dateEnd, ObjectType.Commercial, 25, new CalculateTotalAmountMultiEvent());
 
-   
+            
+            Console.WriteLine(_event.CalculateAmount());
+            Console.WriteLine(mEvent.CalculateAmount());
         }
     }
 }

@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\classes\AddressRU.cs" />
-    <Compile Include="Entities\classes\CountTotalAmount.cs" />
+    <Compile Include="Entities\classes\CalculateTotalAmountMultiEvent.cs" />
+    <Compile Include="Entities\classes\CalculateTotalAmountSingleEvent.cs" />
     <Compile Include="Entities\classes\DayAndTime.cs" />
+    <Compile Include="Entities\classes\MultiEvent.cs" />
     <Compile Include="Entities\classes\SingleEvent.cs" />
     <Compile Include="Entities\enums\EventType.cs" />
     <Compile Include="Entities\classes\INNIndividualPerson.cs" />
