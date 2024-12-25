@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,7 +66,9 @@
     <Compile Include="Entities\interfaces\IContract.cs" />
     <Compile Include="Entities\interfaces\IContractPayment.cs" />
     <Compile Include="Entities\interfaces\IEvent.cs" />
+    <Compile Include="Entities\interfaces\IIndividualConsumer.cs" />
     <Compile Include="Entities\interfaces\IINN.cs" />
+    <Compile Include="Entities\interfaces\ILegalConsumer.cs" />
     <Compile Include="Entities\interfaces\ILicenseToCarryWeapon.cs" />
     <Compile Include="Entities\classes\IndividualConsumer.cs" />
     <Compile Include="Entities\interfaces\IMultiEvent.cs" />
@@ -90,9 +95,14 @@
     <Compile Include="Entities\classes\TransportRU.cs" />
     <Compile Include="Entities\classes\Weapon.cs" />
     <Compile Include="Entities\classes\Worker.cs" />
+    <Compile Include="Repositories\ClassRepository\ConsumerJsonRepository.cs" />
+    <Compile Include="Repositories\ClassRepository\ContractsRepository.cs" />
+    <Compile Include="Repositories\ClassRepository\LegalConsumerRepository.cs" />
+    <Compile Include="Repositories\InterfacesRepository\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

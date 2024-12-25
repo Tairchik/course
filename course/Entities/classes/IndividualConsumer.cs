@@ -1,4 +1,5 @@
-﻿using System;
+﻿using course.Entities.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace course.interfaces
 {
-    internal class IndividualConsumer : IConsumer
+    internal class IndividualConsumer : IIndividualConsumer
     {
         private string name;
         private string surname;
         private string patronymic;
         private IAddress address;
         private List<IContract> contracts;
-        
+
 
         public IndividualConsumer(string name, string surname, string patronymic, IAddress address)
         {
@@ -22,7 +23,6 @@ namespace course.interfaces
             Patronymic = patronymic;
             Address = address;
         }
-
         public void AddContract(IContract contract)
         {
             contracts.Add(contract);

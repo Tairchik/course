@@ -1,4 +1,5 @@
-﻿using course.interfaces;
+﻿using course.Entities.interfaces;
+using course.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace course
 {
-    internal class LegalConsumer : IConsumer
+    internal class LegalConsumer : ILegalConsumer
     {
         private string companyName;
         private IAddress address;
@@ -73,10 +74,6 @@ namespace course
                     address = value;
                 }
             }
-        }
-        public string GetConsumerInfo() // Доработать
-        { 
-            return $"{CompanyName}";
         }
     }
 }
