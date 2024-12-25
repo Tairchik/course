@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\StartController.cs" />
     <Compile Include="Entities\classes\AddressRU.cs" />
     <Compile Include="Entities\classes\CalculateTotalAmountMultiEvent.cs" />
     <Compile Include="Entities\classes\CalculateTotalAmountSingleEvent.cs" />
@@ -95,9 +96,10 @@
     <Compile Include="Entities\classes\TransportRU.cs" />
     <Compile Include="Entities\classes\Weapon.cs" />
     <Compile Include="Entities\classes\Worker.cs" />
-    <Compile Include="Repositories\ClassRepository\ConsumerJsonRepository.cs" />
+    <Compile Include="Repositories\ClassRepository\IndividualConsumerJsonRepository.cs" />
     <Compile Include="Repositories\ClassRepository\ContractsRepository.cs" />
-    <Compile Include="Repositories\ClassRepository\LegalConsumerRepository.cs" />
+    <Compile Include="Repositories\ClassRepository\LegalConsumerJsonRepository.cs" />
+    <Compile Include="Repositories\ClassRepository\SecuritiesJsonRepository.cs" />
     <Compile Include="Repositories\InterfacesRepository\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>

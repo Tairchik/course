@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace course.Repositories.InterfacesRepository
 {
-    internal interface IRepository<T>
+    internal interface IRepository<T, IDType>
     {
         void Add(T item);
         bool Remove(T item);
         void Update(T item);
-        T GetById(string id);
+        T GetById(IDType id);
         IEnumerable<T> GetAll();
     }
 }

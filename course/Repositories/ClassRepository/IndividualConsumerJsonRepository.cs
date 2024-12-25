@@ -12,7 +12,7 @@ using course.Entities.interfaces;
 
 namespace course.Repositories.ClassRepository
 {
-    internal class IndividualConsumerJsonRepository : IRepository<IIndividualConsumer>
+    internal class IndividualConsumerJsonRepository : IRepository<IIndividualConsumer, string>
     {
         private readonly string path;
         private List<IIndividualConsumer> consumers;

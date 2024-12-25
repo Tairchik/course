@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace course.Repositories.ClassRepository
 {
-    internal class LegalConsumerRepository : IRepository<ILegalConsumer>
+    internal class LegalConsumerJsonRepository : IRepository<ILegalConsumer, string>
     {
         private readonly string path;
         private List<ILegalConsumer> consumers;
 
-        public LegalConsumerRepository(string path)
+        public LegalConsumerJsonRepository(string path)
         {
             this.path = path;
             consumers = new List<ILegalConsumer>();
