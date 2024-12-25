@@ -2,6 +2,7 @@
 using course.Entities.interfaces;
 using course.interfaces;
 using course.YourProjectNamespace.Common;
+using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,21 +15,9 @@ namespace course
     {
         static void Main(string[] args)
         {
-            
-            IAddress address = new AddressRU("Russia", "Новосибирская область", "Новосибирск", "Тюленина", "дом 28");
-
-            DateTime dateStart = new DateTime(2024, 12, 24);
-            DateTime dateEnd = new DateTime(2024, 12, 24);
-
-            Console.WriteLine((dateEnd - dateStart).Days);
-
-            Console.WriteLine(dateStart.CompareTo(dateEnd));
-            ISingleEvent _event = new SingleEvent(address, dateStart, dateEnd, EventType.Public, 250, new CalculateTotalAmountSingleEvent());
-            IMultiEvent mEvent = new MultiEvent(address, dateStart, dateEnd, ObjectType.Commercial, 25, new CalculateTotalAmountMultiEvent());
-
-            
-            Console.WriteLine(_event.CalculateAmount());
-            Console.WriteLine(mEvent.CalculateAmount());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
     }
 }

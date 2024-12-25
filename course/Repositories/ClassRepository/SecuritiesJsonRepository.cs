@@ -43,14 +43,14 @@ namespace course.Repositories.ClassRepository
                 filePath = path + "\\" + fileName;
                 json = JsonConvert.SerializeObject(security, options);
                 File.WriteAllText(filePath, json);
-            }
+            }    
         }
         public void Add(ISecurity security)
         {
             securities.Add(security);
             SaveData();
         }
-        public IEnumerable<ISecurity> GetAll()
+        public List<ISecurity> GetAll()
         {
             return securities;
         }

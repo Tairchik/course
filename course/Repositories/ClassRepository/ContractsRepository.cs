@@ -50,7 +50,7 @@ namespace course.Repositories.ClassRepository
             contracts.Add(contract);
             SaveData();
         }
-        public IEnumerable<IContract> GetAll()
+        public List<IContract> GetAll()
         {
             return contracts;
         }

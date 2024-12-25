@@ -12,6 +12,6 @@ namespace course.Repositories.InterfacesRepository
         bool Remove(T item);
         void Update(T item);
         T GetById(IDType id);
-        IEnumerable<T> GetAll();
+        List<T> GetAll();
     }
 }

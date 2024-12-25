@@ -50,7 +50,7 @@ namespace course.Repositories.ClassRepository
             consumers.Add(consumer);
             SaveData();
         }
-        public IEnumerable<ILegalConsumer> GetAll()
+        public List<ILegalConsumer> GetAll()
         {
             return consumers;
         }
