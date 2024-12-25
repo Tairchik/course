@@ -9,10 +9,10 @@ namespace course.interfaces
     internal interface IContract
     {
         int ID { get;}
-        DateTime DateStart { get; set; }
-        DateTime DateEnd { get; set; }
-        IEvent Event { get; set; }
-        IConsumer Consumer { get; set; }
+        DateTime DateStartContract { get; set; }
+        DateTime DateEndContract { get; set; }
+        IEvent EventData { get; set; }
+        //IConsumer Consumer { get; set; }
         
     }
 }
