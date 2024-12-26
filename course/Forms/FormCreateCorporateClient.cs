@@ -49,11 +49,9 @@ namespace course.Forms
 
         private void BtnBackToMenu_Click(object sender, EventArgs e)
         {
-            // Закрытие текущей формы
             ManagerForm form1 = new ManagerForm();
             form1.Show();
             this.Hide();
-
         }
         private Label lblCompanyName;
         private TextBox txtCompanyName;

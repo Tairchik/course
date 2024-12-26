@@ -23,7 +23,7 @@ namespace course.Forms
         {
             // Открытие формы создания физического лица
             var form = new FormCreateIndividualClient();
-            this.Hide();
+            this.Close();
             form.Show();
             
         }

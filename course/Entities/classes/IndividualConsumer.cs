@@ -91,7 +91,7 @@ namespace course.interfaces
                 }
                 else
                 {
-                    name = value;
+                    patronymic = value;
                 }
             }
         }

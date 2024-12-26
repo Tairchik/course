@@ -79,7 +79,18 @@ namespace course.Forms
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if (listBox.SelectedItem != null)
+            if (_legalFileRepository.GetById(listBox.SelectedItem.ToString()) is ILegalConsumer)
+            {
+                EditLegalConsumerForm editFrom = new EditLegalConsumerForm(listBox.SelectedItem.ToString());
+                editFrom.Show();
+
+                this.Hide();
+            }
+            else if (_individualFileRepository.GetById(listBox.SelectedItem.ToString()) is IIndividualConsumer)
+            {
+
+            }
+            else if (listBox.SelectedItem != null)
                 MessageBox.Show($"Редактирование: {listBox.SelectedItem}");
             else
                 MessageBox.Show("Пожалуйста, выберите элемент для редактирования.");

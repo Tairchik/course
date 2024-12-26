@@ -13,29 +13,40 @@ using System.Windows.Forms;
 
 namespace course.Forms
 {
-    public partial class FormCreateIndividualClient : Form
+    public partial class EditLegalConsumerForm : Form
     {
-        const string directoryPath = "..\\..\\Data\\DataConsumer\\DataIndividual";
-        private IndividualConsumerJsonRepository _fileRepository = new IndividualConsumerJsonRepository(directoryPath);
-        public FormCreateIndividualClient()
-        {
-            InitializeComponent();
-        }
-        private void btnSave_Click(object sender, EventArgs e)
-        {
+        const string directoryLegalPath = "..\\..\\Data\\DataConsumer\\DataLegal";
+        private LegalConsumerJsonRepository _legalFileRepository = new LegalConsumerJsonRepository(directoryLegalPath);
 
+        private ILegalConsumer consumer;
+        public EditLegalConsumerForm(string id)
+        {
+      
+            consumer = _legalFileRepository.GetById(id);
+            InitializeComponent();
+            txtCompanyName.Text = consumer.CompanyName;
+            txtCountry.Text = consumer.Address.Country;
+            txtRegion.Text = consumer.Address.Region;
+            txtCity.Text = consumer.Address.Locality;
+            txtStreet.Text = consumer.Address.Street;
+            txtBuildingNumber.Text = consumer.Address.Construction;
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
             try
             {
                 // Создание объекта клиента
                 IAddress consumerAddress = new AddressRU(txtCountry.Text, txtRegion.Text, txtCity.Text, txtStreet.Text, txtBuildingNumber.Text);
-                IIndividualConsumer consumer = new IndividualConsumer(txtFirstName.Text, txtLastName.Text, txtMiddleName.Text, consumerAddress);
-                Console.WriteLine(txtFirstName.Text + txtLastName.Text + txtMiddleName.Text);
+                ILegalConsumer consumerNew = new LegalConsumer(txtCompanyName.Text, consumerAddress);
+
                 // Определение пути для сохранения файла
-                _fileRepository.Add(consumer);
+                _legalFileRepository.Update(consumerNew);
+               
+
                 ManagerForm form = new ManagerForm();
                 form.Show();
-                this.Close();
-
+                this.Hide();
 
             }
             catch (Exception ex)
@@ -44,21 +55,14 @@ namespace course.Forms
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnBackToMenu_Click(object sender, EventArgs e)
         {
             ManagerForm form1 = new ManagerForm();
             form1.Show();
-            this.Close();
+            this.Hide();
         }
-
-        private Label lblFirstName;
-        private TextBox txtFirstName;
-
-        private Label lblLastName;
-        private TextBox txtLastName;
-
-        private Label lblMiddleName;
-        private TextBox txtMiddleName;
+        private Label lblCompanyName;
+        private TextBox txtCompanyName;
 
         private Label lblCountry;
         private TextBox txtCountry;
@@ -76,8 +80,6 @@ namespace course.Forms
         private TextBox txtBuildingNumber;
 
         private Button btnSave;
-        private Button btnExit;
-
-      
+        private Button btnBackToMenu;
     }
 }

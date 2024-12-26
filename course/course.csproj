@@ -93,6 +93,12 @@
     <Compile Include="Entities\classes\PensionFoundRU.cs" />
     <Compile Include="Entities\classes\PassportRu.cs" />
     <Compile Include="Entities\classes\Post.cs" />
+    <Compile Include="Forms\EditLegalConsumerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditLegalConsumerForm.Designer.cs">
+      <DependentUpon>EditLegalConsumerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormCreateCorporateClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\FormCreateCorporateClient.resx">
       <DependentUpon>FormCreateCorporateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCreateIndividualClient.resx">
+      <DependentUpon>FormCreateIndividualClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagerForm.resx">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

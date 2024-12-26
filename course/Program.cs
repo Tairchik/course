@@ -28,8 +28,8 @@ namespace course
                     .ToList();
             string path2 = "..\\..\\Data\\DataConsumer\\DataIndividual";
             IndividualConsumerJsonRepository _individualFileRepository = new IndividualConsumerJsonRepository(path2);
-            List<LegalConsumer> filesind = _individualFileRepository.GetAll()
-                    .Cast<LegalConsumer>()
+            List<IndividualConsumer> filesind = _individualFileRepository.GetAll()
+                    .Cast<IndividualConsumer>()
                     .ToList();
 
 
