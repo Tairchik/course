@@ -93,12 +93,31 @@
     <Compile Include="Entities\classes\PensionFoundRU.cs" />
     <Compile Include="Entities\classes\PassportRu.cs" />
     <Compile Include="Entities\classes\Post.cs" />
-    <Compile Include="Form\Form1.cs">
+    <Compile Include="Forms\FormCreateCorporateClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FormCreateCorporateClient.Designer.cs">
+      <DependentUpon>FormCreateCorporateClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormCreateIndividualClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCreateIndividualClient.Designer.cs">
+      <DependentUpon>FormCreateIndividualClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagerForm.Designer.cs">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectedConsumerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectedConsumerForm.Designer.cs">
+      <DependentUpon>SelectedConsumerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\MainPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\classes\TransportRU.cs" />
@@ -119,6 +138,11 @@
     <Folder Include="Data\DataConsumer\DataLegal\" />
     <Folder Include="Data\DataContract\" />
     <Folder Include="Data\DataWorker\DataSecurity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormCreateCorporateClient.resx">
+      <DependentUpon>FormCreateCorporateClient.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

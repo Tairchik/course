@@ -1,6 +1,6 @@
-﻿namespace course
+﻿namespace course.Forms
 {
-    partial class Form1
+    partial class ManagerForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,10 +39,7 @@
             // 
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 15;
-            this.listBox.Items.AddRange(new object[] {
-            "Элемент 1",
-            "Элемент 2",
-            "Элемент 3"});
+            this.listBox.Items.AddRange(new object[] { });
             this.listBox.Location = new System.Drawing.Point(12, 20);
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(200, 94);
@@ -96,6 +93,10 @@
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnCreate;
         #endregion
     }
 }

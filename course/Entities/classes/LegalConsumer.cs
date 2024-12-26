@@ -29,15 +29,7 @@ namespace course
             get {  return contracts; }
             set 
             {
-
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Неверный список контрактов");
-                }
-                else
-                {
-                    contracts = value;
-                }
+                contracts = value;
             }
         }
 
