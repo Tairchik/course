@@ -13,18 +13,18 @@ using System.Windows.Forms;
 
 namespace course.Forms
 {
-    public partial class EditLegalConsumerForm : Form
+    public partial class EditIndividualConsumerForm : Form
     {
-        const string directoryLegalPath = "..\\..\\Data\\DataConsumer\\DataLegal";
-        private LegalConsumerJsonRepository _legalFileRepository = new LegalConsumerJsonRepository(directoryLegalPath);
-        private int consumerID; 
+        const string directoryPath = "..\\..\\Data\\DataConsumer\\DataIndividual";
+        private IndividualConsumerJsonRepository _individualFileRepository = new IndividualConsumerJsonRepository(directoryPath);
+        private int consumerID;
+        private IIndividualConsumer consumer;
 
-        private ILegalConsumer consumer;
-        public EditLegalConsumerForm(int id)
+        public EditIndividualConsumerForm(int id)
         {
             try
             {
-                consumer = _legalFileRepository.GetById(id);
+                consumer = _individualFileRepository.GetById(id);
             }
             catch (Exception ex)
             {
@@ -33,31 +33,31 @@ namespace course.Forms
             consumerID = id;
             InitializeComponent();
             lblIdText.Text = $"{id}";
-            txtCompanyName.Text = consumer.CompanyName;
+            txtFirstName.Text = consumer.Name;
+            txtLastName.Text = consumer.Surname;
+            txtMiddleName.Text = consumer.Patronymic;
             txtCountry.Text = consumer.Address.Country;
             txtRegion.Text = consumer.Address.Region;
             txtCity.Text = consumer.Address.Locality;
             txtStreet.Text = consumer.Address.Street;
             txtBuildingNumber.Text = consumer.Address.Construction;
-            
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+
             try
             {
                 // Создание объекта клиента
                 IAddress consumerAddress = new AddressRU(txtCountry.Text, txtRegion.Text, txtCity.Text, txtStreet.Text, txtBuildingNumber.Text);
-                ILegalConsumer consumerNew = new LegalConsumer(txtCompanyName.Text, consumerAddress, consumerID);
+                IIndividualConsumer consumerNew = new IndividualConsumer(txtFirstName.Text, txtLastName.Text, txtMiddleName.Text, consumerAddress, consumerID);
 
                 // Определение пути для сохранения файла
-                _legalFileRepository.Update(consumerNew);
-               
+                _individualFileRepository.Update(consumerNew);
 
                 ManagerForm form = new ManagerForm();
                 form.Show();
                 this.Hide();
-
             }
             catch (Exception ex)
             {
@@ -65,14 +65,20 @@ namespace course.Forms
             }
         }
 
-        private void BtnBackToMenu_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             ManagerForm form1 = new ManagerForm();
             form1.Show();
-            this.Hide();
+            this.Close();
         }
-        private Label lblCompanyName;
-        private TextBox txtCompanyName;
+        private Label lblFirstName;
+        private TextBox txtFirstName;
+
+        private Label lblLastName;
+        private TextBox txtLastName;
+
+        private Label lblMiddleName;
+        private TextBox txtMiddleName;
 
         private Label lblCountry;
         private TextBox txtCountry;
@@ -90,7 +96,7 @@ namespace course.Forms
         private TextBox txtBuildingNumber;
 
         private Button btnSave;
-        private Button btnBackToMenu;
+        private Button btnExit;
 
         private Label lblId;
         private Label lblIdText;

@@ -14,11 +14,13 @@ namespace course
         private string companyName;
         private IAddress address;
         private List<IContract> contracts;
+        private int id;
 
-        public LegalConsumer(string companyName, IAddress address) 
+        public LegalConsumer(string companyName, IAddress address, int id) 
         { 
             CompanyName = companyName;
             Address = address;
+            Id = id;
         }
         public void AddContract(IContract contract)
         {
@@ -30,6 +32,15 @@ namespace course
             set 
             {
                 contracts = value;
+            }
+        }
+
+        public int Id 
+        { 
+            get { return id; }
+            private set
+            {
+                id = value;
             }
         }
 

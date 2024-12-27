@@ -10,5 +10,6 @@ namespace course.interfaces
     {
         List<IContract> Contracts { get; }
         void AddContract(IContract contract);
+        int Id { get; }
     }
 }

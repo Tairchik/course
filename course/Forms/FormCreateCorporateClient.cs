@@ -31,7 +31,7 @@ namespace course.Forms
             {
                 // Создание объекта клиента
                 IAddress consumerAddress = new AddressRU(txtCountry.Text, txtRegion.Text, txtCity.Text, txtStreet.Text, txtBuildingNumber.Text);
-                ILegalConsumer consumer = new LegalConsumer(txtCompanyName.Text, consumerAddress);
+                ILegalConsumer consumer = new LegalConsumer(txtCompanyName.Text, consumerAddress, _legalFileRepository.GetUnicumId);
 
                 // Определение пути для сохранения файла
                 _legalFileRepository.Add(consumer);

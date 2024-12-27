@@ -47,6 +47,7 @@
             this.txtBuildingNumber = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFirstName
@@ -197,6 +198,15 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(292, 295);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(21, 13);
+            this.lblId.TabIndex = 12;
+            this.lblId.Text = "ID:";
+            // 
             // FormCreateIndividualClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,6 +230,7 @@
             this.Controls.Add(this.txtBuildingNumber);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.lblId);
             this.Name = "FormCreateIndividualClient";
             this.Text = "Создание физического лица";
             this.ResumeLayout(false);

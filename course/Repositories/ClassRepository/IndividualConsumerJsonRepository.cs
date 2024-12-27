@@ -12,7 +12,7 @@ using course.Entities.interfaces;
 
 namespace course.Repositories.ClassRepository
 {
-    internal class IndividualConsumerJsonRepository : IRepository<IIndividualConsumer, string>
+    internal class IndividualConsumerJsonRepository : IRepository<IIndividualConsumer, int>
     {
         private readonly string path;
         private List<IIndividualConsumer> consumers;
@@ -40,7 +40,7 @@ namespace course.Repositories.ClassRepository
             var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All, Formatting = Newtonsoft.Json.Formatting.Indented };
             foreach (var consumer in consumers)
             {
-                fileName = $"{consumer.Name + " " + consumer.Surname + " " + consumer.Patronymic}.json";
+                fileName = $"{consumer.Id}.json";
                 filePath = path + "\\" + fileName;
                 json = JsonConvert.SerializeObject(consumer, options);
                 File.WriteAllText(filePath, json);
@@ -48,12 +48,39 @@ namespace course.Repositories.ClassRepository
         }
         public void Add(IIndividualConsumer consumer)
         {
+            if (AnalyzerId(consumer.Id))
+            {
+                throw new ArgumentException($"Заказчик с таким id:{consumer.Id} уже существует");
+            }
             consumers.Add(consumer);
             SaveData();
         }
         public List<IIndividualConsumer> GetAll()
         {
             return consumers;
+        }
+
+        public bool AnalyzerId(int id)
+        {
+            foreach (var consumer in consumers)
+            {
+               if (consumer.Id == id) return true;
+            }
+            return false;
+        }
+        public int GetUnicumId
+        {
+            get { return ReturnLastId() + 1; }
+        }
+        public int ReturnLastId()
+        {
+            int lastId = 0;
+            foreach (var consumer in consumers)
+            {
+                if (lastId <= consumer.Id) 
+                    lastId = consumer.Id;
+            }
+            return lastId;
         }
 
         public bool Remove(IIndividualConsumer consumer)
@@ -66,16 +93,16 @@ namespace course.Repositories.ClassRepository
             return false;
         }
 
-        public IIndividualConsumer GetById(string id)
+        public IIndividualConsumer GetById(int id)
         {
-            var consumer = consumers.FirstOrDefault(c => c.Name + " " + c.Surname + " " + c.Patronymic == id);
+            var consumer = consumers.FirstOrDefault(c => c.Id == id);
             if (consumer == null)
                 throw new Exception($"Заказчик {id} не найден");
             return consumer;
         }
         public void Update(IIndividualConsumer consumer)
         {
-            string id = consumer.Name + " " + consumer.Surname + " " + consumer.Patronymic;
+            int id = consumer.Id;
             IConsumer existingConsumer = GetById(id);
             if (existingConsumer != null)
             {

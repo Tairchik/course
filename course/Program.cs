@@ -20,22 +20,6 @@ namespace course
     {
         static void Main(string[] args)
         {
-            
-            string path = "..\\..\\Data\\DataConsumer\\DataLegal";
-            LegalConsumerJsonRepository _legalFileRepository = new LegalConsumerJsonRepository(path);
-            List<LegalConsumer> filesLegal = _legalFileRepository.GetAll()
-                    .Cast<LegalConsumer>()
-                    .ToList();
-            string path2 = "..\\..\\Data\\DataConsumer\\DataIndividual";
-            IndividualConsumerJsonRepository _individualFileRepository = new IndividualConsumerJsonRepository(path2);
-            List<IndividualConsumer> filesind = _individualFileRepository.GetAll()
-                    .Cast<IndividualConsumer>()
-                    .ToList();
-
-
-
-
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ManagerForm());

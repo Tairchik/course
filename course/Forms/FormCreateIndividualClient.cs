@@ -17,6 +17,7 @@ namespace course.Forms
     {
         const string directoryPath = "..\\..\\Data\\DataConsumer\\DataIndividual";
         private IndividualConsumerJsonRepository _fileRepository = new IndividualConsumerJsonRepository(directoryPath);
+
         public FormCreateIndividualClient()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace course.Forms
             {
                 // Создание объекта клиента
                 IAddress consumerAddress = new AddressRU(txtCountry.Text, txtRegion.Text, txtCity.Text, txtStreet.Text, txtBuildingNumber.Text);
-                IIndividualConsumer consumer = new IndividualConsumer(txtFirstName.Text, txtLastName.Text, txtMiddleName.Text, consumerAddress);
+                IIndividualConsumer consumer = new IndividualConsumer(txtFirstName.Text, txtLastName.Text, txtMiddleName.Text, consumerAddress, _fileRepository.GetUnicumId);
                 Console.WriteLine(txtFirstName.Text + txtLastName.Text + txtMiddleName.Text);
                 // Определение пути для сохранения файла
                 _fileRepository.Add(consumer);
@@ -78,6 +79,6 @@ namespace course.Forms
         private Button btnSave;
         private Button btnExit;
 
-      
+        private Label lblId;
     }
 }

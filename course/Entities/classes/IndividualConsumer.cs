@@ -14,18 +14,29 @@ namespace course.interfaces
         private string patronymic;
         private IAddress address;
         private List<IContract> contracts;
+        private int id;
 
 
-        public IndividualConsumer(string name, string surname, string patronymic, IAddress address)
+        public IndividualConsumer(string name, string surname, string patronymic, IAddress address, int id)
         {
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
             Address = address;
+            Id = id;
         }
         public void AddContract(IContract contract)
         {
             contracts.Add(contract);
+        }
+
+        public int Id
+        {
+            get { return id; }
+            private set
+            {
+                id = value;
+            }
         }
         public IAddress Address
         {

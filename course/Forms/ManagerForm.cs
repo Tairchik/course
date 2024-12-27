@@ -18,15 +18,13 @@ namespace course.Forms
     {
         private readonly LegalConsumerJsonRepository _legalFileRepository;
         private readonly IndividualConsumerJsonRepository _individualFileRepository;
+        private readonly string directoryLegalPath = "..\\..\\Data\\DataConsumer\\DataLegal";
+        private readonly string directoryIndividualPath = "..\\..\\Data\\DataConsumer\\DataIndividual";
 
 
         public ManagerForm()
         {
             InitializeComponent();
-
-            string directoryLegalPath = "..\\..\\Data\\DataConsumer\\DataLegal";
-            string directoryIndividualPath = "..\\..\\Data\\DataConsumer\\DataIndividual";
-
             try
             {
                 _legalFileRepository = new LegalConsumerJsonRepository(directoryLegalPath);
@@ -56,11 +54,11 @@ namespace course.Forms
                 // Добавить имена файлов в listBox
                 foreach (var file in filesLegal)
                 {
-                    listBox.Items.Add(Path.GetFileName(file.CompanyName)); // Отображает только имя файла
+                    listBox.Items.Add(file.CompanyName + "-" + file.Id.ToString() + "-" + "L"); // Отображает только имя файла
                 }
                 foreach (var fileInd in filesIndividual)
                 {
-                    listBox.Items.Add(Path.GetFileName(fileInd.Name + " " + fileInd.Surname + " " + fileInd.Patronymic));
+                    listBox.Items.Add(fileInd.Name + " " + fileInd.Surname + " " + fileInd.Patronymic + "-" + fileInd.Id.ToString() + "-" + "I");
                 }
             }
             catch (Exception ex)
@@ -79,21 +77,31 @@ namespace course.Forms
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if (_legalFileRepository.GetById(listBox.SelectedItem.ToString()) is ILegalConsumer)
+            try
             {
-                EditLegalConsumerForm editFrom = new EditLegalConsumerForm(listBox.SelectedItem.ToString());
-                editFrom.Show();
-
-                this.Hide();
+                int selectList = int.Parse(listBox.SelectedItem.ToString().Split('-')[1]);
+                string selectIorL = listBox.SelectedItem.ToString().Split('-')[2];
+                if (listBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Пожалуйста, выберите элемент для редактирования.");
+                }
+                else if (_legalFileRepository.GetById(selectList) != null && selectIorL == "L")
+                {
+                    EditLegalConsumerForm editFrom = new EditLegalConsumerForm(selectList);
+                    editFrom.Show();
+                    this.Hide();
+                }
+                else if (_individualFileRepository.GetById(selectList) != null && selectIorL == "I")   
+                {
+                    EditIndividualConsumerForm editForm = new EditIndividualConsumerForm(selectList);
+                    editForm.Show();
+                    this.Hide();
+                }
             }
-            else if (_individualFileRepository.GetById(listBox.SelectedItem.ToString()) is IIndividualConsumer)
+            catch (Exception ex)
             {
-
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (listBox.SelectedItem != null)
-                MessageBox.Show($"Редактирование: {listBox.SelectedItem}");
-            else
-                MessageBox.Show("Пожалуйста, выберите элемент для редактирования.");
         }
 
         private void BtnCreate_Click(object sender, EventArgs e)
