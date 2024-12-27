@@ -39,7 +39,7 @@ namespace course.Repositories.ClassRepository
             var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All, Formatting = Newtonsoft.Json.Formatting.Indented };
             foreach (var consumer in consumers)
             {
-                fileName = $"{consumer.Id.ToString()}.json";
+                fileName = $"{consumer.Id}.json";
                 filePath = path + "\\" + fileName;
                 json = JsonConvert.SerializeObject(consumer, options);
                 File.WriteAllText(filePath, json);
@@ -51,8 +51,12 @@ namespace course.Repositories.ClassRepository
             {
                 throw new ArgumentException($"Заказчик с таким id:{consumer.Id} уже существует");
             }
-            consumers.Add(consumer);
-            SaveData();
+            else
+            {
+                consumers.Add(consumer);
+                SaveData();
+            }
+           
         }
         public List<ILegalConsumer> GetAll()
         {

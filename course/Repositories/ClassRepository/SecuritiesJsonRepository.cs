@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace course.Repositories.ClassRepository
 {
-    internal class SecuritiesJsonRepository : IRepository<ISecurity, string>
+    internal class SecuritiesJsonRepository : IRepository<ISecurity, int>
     {
         private readonly string path;
         private List<ISecurity> securities;
@@ -39,7 +39,7 @@ namespace course.Repositories.ClassRepository
             var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All, Formatting = Newtonsoft.Json.Formatting.Indented };
             foreach (var security in securities)
             {
-                fileName = $"{security.Surname + " " + security.Name + " " + security.Patronymic + " " + security.PassportData.Series + security.PassportData.Number}.json";
+                fileName = $"{security.Id}.json";
                 filePath = path + "\\" + fileName;
                 json = JsonConvert.SerializeObject(security, options);
                 File.WriteAllText(filePath, json);
@@ -47,8 +47,15 @@ namespace course.Repositories.ClassRepository
         }
         public void Add(ISecurity security)
         {
-            securities.Add(security);
-            SaveData();
+            if (AnalyzerId(security.Id))
+            {
+                throw new ArgumentException($"Заказчик с таким id:{security.Id} уже существует");
+            }
+            else
+            {
+                securities.Add(security);
+                SaveData();
+            }
         }
         public List<ISecurity> GetAll()
         {
@@ -65,16 +72,16 @@ namespace course.Repositories.ClassRepository
             return false;
         }
 
-        public ISecurity GetById(string id)
+        public ISecurity GetById(int id)
         {
-            var security = securities.FirstOrDefault(c => c.Surname + " " + c.Name + " " + c.Patronymic + " " + c.PassportData.Series + c.PassportData.Number == id);
+            var security = securities.FirstOrDefault(c => c.Id == id);
             if (security == null)
                 throw new Exception($"Работник {id} не найден");
             return security;
         }
         public void Update(ISecurity security)
         {
-            string id = security.Surname + " " + security.Name + " " + security.Patronymic + " " + security.PassportData.Series + security.PassportData.Number;
+            int id = security.Id;
             ISecurity existingSecurity = GetById(id);
             if (existingSecurity != null)
             {
@@ -85,6 +92,28 @@ namespace course.Repositories.ClassRepository
             {
                 throw new Exception("Невозможно изменить работника, так как он не найден.");
             }
+        }
+        public int ReturnLastId()
+        {
+            int lastId = 0;
+            foreach (var security in securities)
+            {
+                if (lastId <= security.Id)
+                    lastId = security.Id;
+            }
+            return lastId;
+        }
+        public int GetUnicumId
+        {
+            get { return ReturnLastId() + 1; }
+        }
+        public bool AnalyzerId(int id)
+        {
+            foreach (var security in securities)
+            {
+                if (security.Id == id) return true;
+            }
+            return false;
         }
     }
 }

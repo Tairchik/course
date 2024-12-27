@@ -240,7 +240,7 @@
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.lblIdText);
             this.Name = "FormCreateIndividualClient";
-            this.Text = "Создание физического лица";
+            this.Text = "Изменение физического лица";
             this.ResumeLayout(false);
             this.PerformLayout();
 

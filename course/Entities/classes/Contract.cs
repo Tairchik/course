@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace course.Entities.classes
 {
-    internal class Contract : IContract
+    internal class ContractClass : IContract
     {
         private int id; // уникальный номер
+        private int securityNum;
         private DateTime dateStartContract;
         private DateTime dateEndContract;
         private IEvent eventData;
+        private List<ISecurity> securities;
 
-        public Contract(int id, DateTime dateStart, DateTime dateEnd, IEvent eventData)
+        public ContractClass(int id, DateTime dateStart, DateTime dateEnd, IEvent eventData)
         {
             if (id <= 0)
             {
@@ -24,10 +26,65 @@ namespace course.Entities.classes
             {
                 this.id = id;
             }
+            
+            EventData = eventData;
+            SecurityNum = eventData.CalculateAmount();
             DateStartContract = dateStart;
             DateEndContract = dateEnd;
-            EventData = eventData;
 
+        }
+        public ContractClass(int id, IEvent eventData)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Неверный уникальный номер контракта");
+            }
+            else
+            {
+                this.id = id;
+            }
+            EventData = eventData;
+            SecurityNum = eventData.CalculateAmount();
+            DateStartContractAuto();
+            DateEndContractAuto();
+
+        }
+        public List<ISecurity> Securities
+        {
+            get { return securities; }
+            set 
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Охранники не объявлены");
+                }
+                else if (value.Count < securityNum)
+                {
+                    throw new ArgumentNullException("Недостаточное число назначенных охранников");
+                }
+                else
+                {
+                    securities = value;
+                }
+            }
+        }
+        public int SecurityNum
+        {
+            get
+            {
+                return securityNum;
+            }
+            private set
+            {
+                if (value <= 0) 
+                {
+                    throw new ArgumentException("Неверное значение числа охранников нужных для мероприятия");
+                }
+                else
+                {
+                    securityNum = value;
+                }
+            }
         }
         public IEvent EventData
         {
@@ -37,7 +94,7 @@ namespace course.Entities.classes
             }
             set
             {
-                if (eventData != null)
+                if (value != null)
                 {
                     eventData = value;
                 }
@@ -54,27 +111,23 @@ namespace course.Entities.classes
                 return id; 
             } 
         }
-        public DateTime DateStartContractAuto 
+        public void DateStartContractAuto()
         {
-            set
+            dateStartContract = DateTime.Now;
+        }
+
+        public void DateEndContractAuto()
+        {
+            if (eventData.DateEnd == null)
             {
-                dateStartContract = DateTime.Now;
+                throw new ArgumentException("Для создания даты окончания контракта, нужно инициализировать Мероприятие");
+            }
+            else
+            {
+                dateEndContract = eventData.DateEnd;
             }
         }
-        public DateTime DateEndContractAuto
-        {
-            set 
-            { 
-                if (eventData.DateEnd == null) 
-                { 
-                    throw new ArgumentException("Для создания даты окончания контракта, нужно инициализировать Мероприятие"); 
-                }
-                else 
-                {
-                    dateEndContract = eventData.DateEnd;
-                }
-            }
-        }
+
         public DateTime DateStartContract
         {
             get

@@ -60,7 +60,7 @@ namespace course.Repositories.ClassRepository
             return consumers;
         }
 
-        public bool AnalyzerId(int id)
+        private bool AnalyzerId(int id)
         {
             foreach (var consumer in consumers)
             {

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace course.Forms
 {
-    public partial class ContractForm : Form
+    public partial class ContractLegalForm : Form
     {
-        public ContractForm()
+        public ContractLegalForm()
         {
             InitializeComponent();
         }

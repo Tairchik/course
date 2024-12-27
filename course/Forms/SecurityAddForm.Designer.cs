@@ -1,6 +1,6 @@
 ﻿namespace course.Forms
 {
-    partial class ManagerForm
+    partial class SecurityAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.listBox = new System.Windows.Forms.ListBox();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox
@@ -52,25 +52,25 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
-            // btnEdit
+            // btnRemove
             // 
-            this.btnEdit.Location = new System.Drawing.Point(197, 52);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 26);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Редактировать";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            this.btnRemove.Location = new System.Drawing.Point(197, 52);
+            this.btnRemove.Name = "btnEdit";
+            this.btnRemove.Size = new System.Drawing.Size(100, 26);
+            this.btnRemove.TabIndex = 2;
+            this.btnRemove.Text = "Удалить";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
-            // btnCreate
+            // btnSave
             // 
-            this.btnCreate.Location = new System.Drawing.Point(197, 87);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(100, 26);
-            this.btnCreate.TabIndex = 3;
-            this.btnCreate.Text = "Создать";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.BtnCreate_Click);
+            this.btnSave.Location = new System.Drawing.Point(197, 87);
+            this.btnSave.Name = "btnCreate";
+            this.btnSave.Size = new System.Drawing.Size(100, 26);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Сохранить";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // ManagerForm
             // 
@@ -79,18 +79,19 @@
             this.ClientSize = new System.Drawing.Size(309, 130);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnSave);
             this.Name = "ManagerForm";
-            this.Text = "Список клиентов";
+            this.Text = "Назначить график охранникам";
             this.ResumeLayout(false);
 
         }
 
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnSave;
+
         #endregion
     }
 }

@@ -12,7 +12,8 @@ namespace course.interfaces
         DateTime DateStartContract { get; set; }
         DateTime DateEndContract { get; set; }
         IEvent EventData { get; set; }
+        int SecurityNum { get;}
         //IConsumer Consumer { get; set; }
-        
+
     }
 }

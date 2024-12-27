@@ -20,11 +20,27 @@ namespace course
         private IINN innData;
         private IPensionFund pensionFundData;
 
+        private int id;
         private IAddress address;
-
-        public Worker(string name, string surname, string patronymic, IAddress address, IPost post, Decimal bonusSalary, 
+        public int Id
+        {
+            get { return id; }
+            private set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Неверный ID");
+                }
+                else
+                {
+                    id = value;
+                }
+            }
+        }
+        public Worker(int id, string name, string surname, string patronymic, IAddress address, IPost post, Decimal bonusSalary, 
             ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund)
         {
+            Id = id;
             Address = address;
             Name = name;
             Surname = surname;

@@ -1,6 +1,6 @@
 ﻿namespace course.Forms
 {
-    partial class ManagerForm
+    partial class ContractIndividualForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             this.listBox = new System.Windows.Forms.ListBox();
             this.btnSelect = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -51,16 +50,7 @@
             this.btnSelect.Text = "Выбрать";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(197, 52);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 26);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Редактировать";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+
             // 
             // btnCreate
             // 
@@ -79,18 +69,17 @@
             this.ClientSize = new System.Drawing.Size(309, 130);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnCreate);
             this.Name = "ManagerForm";
-            this.Text = "Список клиентов";
+            this.Text = "Договоры заказчика";
             this.ResumeLayout(false);
 
         }
 
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Button btnSelect;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnCreate;
         #endregion
+
     }
 }

@@ -199,7 +199,7 @@
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.lblIdText);
             this.Name = "EditLegalConsumerForm";
-            this.Text = "Создание корпоративного клиента";
+            this.Text = "Изменение юридического заказчика";
             this.ResumeLayout(false);
             this.PerformLayout();
 

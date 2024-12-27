@@ -37,7 +37,6 @@ namespace course.Forms
                 form.Show();
                 this.Close();
 
-
             }
             catch (Exception ex)
             {

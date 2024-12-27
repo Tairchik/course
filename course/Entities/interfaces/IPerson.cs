@@ -8,6 +8,7 @@ namespace course.interfaces
 {
     internal interface IPerson
     {
+        int Id { get; }
         IAddress Address { get; set; }
     }
 }

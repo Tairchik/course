@@ -4,6 +4,7 @@ using course.Repositories.InterfacesRepository;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,28 @@ namespace course.Repositories.ClassRepository
                 json = File.ReadAllText(contractFile);
                 contracts.Add(JsonConvert.DeserializeObject<IContract>(json, options));
             }
+        }
+        private bool AnalyzerId(int id)
+        {
+            foreach (var contract in contracts)
+            {
+                if (contract.ID == id) return true;
+            }
+            return false;
+        }
+        public int GetUnicumId
+        {
+            get { return ReturnLastId() + 1; }
+        }
+        public int ReturnLastId()
+        {
+            int lastId = 0;
+            foreach (var contract in contracts)
+            {
+                if (lastId <= contract.ID)
+                    lastId = contract.ID;
+            }
+            return lastId;
         }
         private void SaveData()
         {

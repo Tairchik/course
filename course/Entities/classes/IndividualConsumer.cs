@@ -27,7 +27,14 @@ namespace course.interfaces
         }
         public void AddContract(IContract contract)
         {
-            contracts.Add(contract);
+            if (contract != null)
+            {
+                contracts.Add(contract);
+            }
+            else
+            {
+                throw new Exception("Контракт не определен");
+            }
         }
 
         public int Id

@@ -25,9 +25,14 @@ namespace course.interfaces
         private IINN innData;
         private IPensionFund pensionFundData;
 
-        public Security(string name, string surname, string patronymic, IAddress address, IPost post, Decimal bonusSalary,
+        private int id;
+
+        
+
+        public Security(int id, string name, string surname, string patronymic, IAddress address, IPost post, Decimal bonusSalary,
             ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund, IWeapon weapon, ILicenseToCarryWeapon licenseToCarryWeapon, ISchedule schedule) 
         {
+            Id = id;
             Address = address;
             Name = name;
             Surname = surname;
@@ -41,6 +46,22 @@ namespace course.interfaces
             Weapon = weapon;
             LicenseToCarryWeapon = licenseToCarryWeapon;
             Schedule = schedule;
+        }
+
+        public int Id
+        {
+            get { return id; }
+            private set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Неверный ID");
+                }
+                else
+                {
+                    id = value;
+                }
+            }
         }
 
         public IAddress Address

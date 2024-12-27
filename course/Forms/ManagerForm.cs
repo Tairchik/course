@@ -69,10 +69,31 @@ namespace course.Forms
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
-            if (listBox.SelectedItem != null)
-                MessageBox.Show($"Вы выбрали: {listBox.SelectedItem}");
-            else
-                MessageBox.Show("Пожалуйста, выберите элемент из списка.");
+            try
+            {
+                int selectList = int.Parse(listBox.SelectedItem.ToString().Split('-')[1]);
+                string selectIorL = listBox.SelectedItem.ToString().Split('-')[2];
+                if (listBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Пожалуйста, выберите элемент для редактирования.");
+                }
+                else if (_legalFileRepository.GetById(selectList) != null && selectIorL == "L")
+                {
+                    ContractLegalForm editFrom = new ContractLegalForm();
+                    editFrom.Show();
+                    this.Hide();
+                }
+                else if (_individualFileRepository.GetById(selectList) != null && selectIorL == "I")
+                {
+                    ContractIndividualForm editForm = new ContractIndividualForm(selectList);
+                    editForm.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)

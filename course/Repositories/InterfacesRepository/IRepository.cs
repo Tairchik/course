@@ -8,6 +8,10 @@ namespace course.Repositories.InterfacesRepository
 {
     internal interface IRepository<T, IDType>
     {
+        IDType ReturnLastId();
+        bool AnalyzerId(IDType id);
+        IDType GetUnicumId { get; }
+
         void Add(T item);
         bool Remove(T item);
         void Update(T item);
