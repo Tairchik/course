@@ -1,4 +1,4 @@
-﻿using course.Entities.interfaces;
+﻿using course;
 using course.interfaces;
 using System;
 using System.Collections.Generic;

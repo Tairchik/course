@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class PensionFoundRU : IPensionFund 
     {
@@ -15,14 +15,17 @@ namespace course
         {
             Number = number;
         }
-
+        public override string ToString()
+        {
+            return $"{number}";
+        }
         public string Number
         {
             get { return number; }
             set
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)
-                    || !IsDigitString(value) || value.Length < 12)
+                    || !IsDigitString(value) || value.Length != 12)
                 {
                     throw new ArgumentException("Неверный номер ПФР");
                 }

@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class INNIndividualPerson : IINN
     {
@@ -15,22 +16,9 @@ namespace course
         {
             Number = number;
         }
-
-        public string Number 
-        { 
-            get { return number; } 
-            set 
-            { 
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value)
-                    || !IsDigitString(value) || value.Length < 12)
-                {
-                    throw new ArgumentException("Неверный ИНН");
-                } 
-                else 
-                {
-                    number = value;
-                }
-            }
+        public override string ToString()
+        {
+            return $"{number}";
         }
 
         static bool IsDigitString(string input)
@@ -42,5 +30,21 @@ namespace course
             }
             return true;
         }
+        public string Number 
+        { 
+            get { return number; } 
+            set 
+            {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value) || !IsDigitString(value) || value.Length != 12)
+                {
+                    throw new ArgumentException("Неверный ИНН");
+                } 
+                else 
+                {
+                    number = value;
+                }
+            }
+        }
+
     }
 }

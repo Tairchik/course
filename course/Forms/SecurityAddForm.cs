@@ -35,8 +35,8 @@ namespace course.Forms
         {
             try
             {
-                List<Security> files = securitiesJsonRepository.GetAll()
-                    .Cast<Security>()
+                List<ISecurity> files = securitiesJsonRepository.GetAll()
+                    .Cast<ISecurity>()
                     .ToList();
      
                 listBox.Items.Clear();

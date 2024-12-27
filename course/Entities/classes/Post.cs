@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class Post : IPost
     {
         private string namePost;
-        private Decimal salary;
+        private decimal salary;
 
-        public Post(string namePost, Decimal salary) 
+        public Post(string namePost, decimal salary) 
         {
             NamePost = namePost;
             Salary = salary;
@@ -25,7 +25,11 @@ namespace course
                 namePost = value;
             }
         }
-        public Decimal Salary
+        public override string ToString()
+        {
+            return $"{namePost} {salary}";
+        }
+        public decimal Salary
         {
             get  { return salary; }
             set

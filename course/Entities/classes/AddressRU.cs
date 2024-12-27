@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class AddressRU : IAddress
     {

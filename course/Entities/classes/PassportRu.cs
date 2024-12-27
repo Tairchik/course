@@ -17,6 +17,11 @@ namespace course
             Series = series;
             Number = number;
         }
+
+        public override string ToString()
+        {
+            return $"{series} {number}";
+        }
         public string Series 
         {  
             get { return series; }

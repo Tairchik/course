@@ -1,4 +1,4 @@
-﻿using course.Entities.interfaces;
+﻿using course;
 using course.interfaces;
 using course.Repositories.InterfacesRepository;
 using Newtonsoft.Json;
@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace course.Repositories.ClassRepository
 {
@@ -27,21 +28,22 @@ namespace course.Repositories.ClassRepository
             string[] securityFiles = Directory.GetFiles(path);
             string json;
             var options = new JsonSerializerSettings() 
-            { 
-                TypeNameHandling = TypeNameHandling.All, 
-                Formatting = Newtonsoft.Json.Formatting.Indented 
+            {
+                TypeNameHandling = TypeNameHandling.All,
+                Formatting = Newtonsoft.Json.Formatting.Indented
             };
             foreach (var securityFile in securityFiles)
             {
+
                 json = File.ReadAllText(securityFile);
-                securities.Add(JsonConvert.DeserializeObject<Security>(json, options));
+                securities.Add(JsonConvert.DeserializeObject<ISecurity>(json, options));
             }
         }
         private void SaveData()
         {
             string fileName, filePath, json;
-            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All, Formatting = Newtonsoft.Json.Formatting.Indented };
-            foreach (var security in securities)
+            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All, Formatting = Formatting.Indented };
+            foreach (ISecurity security in securities)
             {
                 fileName = $"{security.Id}.json";
                 filePath = path + "\\" + fileName;

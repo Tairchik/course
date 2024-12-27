@@ -1,4 +1,4 @@
-﻿using course.Entities.interfaces;
+﻿using course;
 using course.interfaces;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class LegalConsumer : ILegalConsumer
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course.Entities.interfaces
+namespace course.interfaces
 {
     internal interface IIndividualConsumer : IConsumer
     {

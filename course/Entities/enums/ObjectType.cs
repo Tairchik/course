@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities
 {
-    namespace YourProjectNamespace.Common
+    public enum ObjectType
     {
-        public enum ObjectType
-        {
-            Residential = 8,         // Жилой объект
-            Commercial = 10,          // Коммерческий объект
-            PublicBuilding = 12,      // Общественное (специальное) здание
-            EngineeringStructure = 14 // Инженерное сооружение
-        }
+        Residential = 8,         // Жилой объект
+        Commercial = 10,          // Коммерческий объект
+        PublicBuilding = 12,      // Общественное (специальное) здание
+        EngineeringStructure = 14 // Инженерное сооружение
     }
 }

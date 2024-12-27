@@ -1,11 +1,12 @@
-﻿using System;
+﻿using course.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course.interfaces
+namespace course.Entities.classes
 {
     internal class Security : ISecurity
     {
@@ -19,7 +20,7 @@ namespace course.interfaces
         private string surname;
         private string patronymic;
         private IPost postData;
-        private Decimal bonusSalary;
+        private decimal bonusSalary;
         private ITransport transportData;
         private IPassport passportData;
         private IINN innData;
@@ -29,23 +30,24 @@ namespace course.interfaces
 
         
 
-        public Security(int id, string name, string surname, string patronymic, IAddress address, IPost post, Decimal bonusSalary,
+        public Security(int id, string name, string surname, string patronymic, IAddress address, IPost post, decimal bonusSalary,
             ITransport transport, IPassport passport, IINN inn, IPensionFund pensionFund, IWeapon weapon, ILicenseToCarryWeapon licenseToCarryWeapon, ISchedule schedule) 
         {
             Id = id;
-            Address = address;
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
-            PostData = post;
+            Address = address;
+            
             BonusSalary = bonusSalary;
-            TransportData = transport; 
+            TransportData = transport;
             PassportData = passport;
             INNData = inn;
             PensionFundData = pensionFund;
             Weapon = weapon;
             LicenseToCarryWeapon = licenseToCarryWeapon;
             Schedule = schedule;
+            PostData = post;
         }
 
         public int Id
@@ -53,7 +55,7 @@ namespace course.interfaces
             get { return id; }
             private set
             {
-                if (value <= 0)
+                if (value <= 0) 
                 {
                     throw new ArgumentException("Неверный ID");
                 }
@@ -166,7 +168,7 @@ namespace course.interfaces
                 }
             }
         }
-        public Decimal BonusSalary
+        public decimal BonusSalary
         {
             get { return bonusSalary; }
             set

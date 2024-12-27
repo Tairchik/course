@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="DTO\DTOSecurity.cs" />
     <Compile Include="Entities\classes\AddressRU.cs" />
     <Compile Include="Entities\classes\CalculateTotalAmountMultiEvent.cs" />

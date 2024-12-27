@@ -1,10 +1,11 @@
 ﻿using System;
+using course.interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course.interfaces
+namespace course.Entities.classes
 {
     internal class BonusSalary : IBonusSalary
     {

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using course.Entities.interfaces;
+using course;
 
 namespace course.Repositories.ClassRepository
 {

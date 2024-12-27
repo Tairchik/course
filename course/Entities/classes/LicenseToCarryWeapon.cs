@@ -1,12 +1,13 @@
 ﻿using course.interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class LicenseToCarryWeapon : ILicenseToCarryWeapon
     {
@@ -31,6 +32,11 @@ namespace course
                     licenseName = value;
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{licenseName}";
         }
         static bool IsDigitString(string input)
         {

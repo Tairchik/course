@@ -8,7 +8,7 @@ namespace course.interfaces
 {
     internal interface IPost
     {
-        Decimal Salary { get; set; }
+        decimal Salary { get; set; }
         string NamePost { get; set; }
     }
 }

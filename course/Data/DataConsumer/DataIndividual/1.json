@@ -1,16 +1,16 @@
 {
-  "$type": "course.interfaces.IndividualConsumer, course",
+  "$type": "course.Entities.classes.IndividualConsumer, course",
   "Id": 1,
   "Address": {
-    "$type": "course.AddressRU, course",
-    "Country": "ыы",
-    "Region": "12",
-    "Locality": "ы",
-    "Street": "2",
-    "Construction": "2"
+    "$type": "course.Entities.classes.AddressRU, course",
+    "Country": "ва",
+    "Region": "ва",
+    "Locality": "ва",
+    "Street": "ва",
+    "Construction": "выа"
   },
   "Contracts": null,
-  "Name": "ФЫВ",
-  "Surname": "вЫФ",
-  "Patronymic": "ыфв"
+  "Name": "выа",
+  "Surname": "выа",
+  "Patronymic": "вававава"
 }

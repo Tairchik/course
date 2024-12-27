@@ -1,4 +1,4 @@
-﻿using course.Entities.interfaces;
+﻿using course;
 using course.interfaces;
 using course.Repositories.InterfacesRepository;
 using Newtonsoft.Json;

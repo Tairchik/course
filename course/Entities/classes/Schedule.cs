@@ -5,13 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class Schedule : ISchedule
     {
         private List<DateTime> _schedule;
+  
 
-
+        public override string ToString()
+        {
+            string toStr = "";
+            foreach(var item in _schedule)
+            {
+                toStr += item.ToString() + " ";
+            }
+            return toStr;
+        }
         public List<DateTime> Schedule_
         {
             get
@@ -23,6 +32,7 @@ namespace course
         {
             if (_schedule == null)
             {
+                _schedule = new List<DateTime>();
                 _schedule.Add(day);
             }
             else

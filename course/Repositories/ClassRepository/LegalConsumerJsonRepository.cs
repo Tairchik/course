@@ -1,4 +1,4 @@
-﻿using course.Entities.interfaces;
+﻿using course;
 using course.interfaces;
 using course.Repositories.InterfacesRepository;
 using Newtonsoft.Json;
@@ -26,7 +26,9 @@ namespace course.Repositories.ClassRepository
         {
             string[] consumerFiles = Directory.GetFiles(path);
             string json;
-            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All, Formatting = Newtonsoft.Json.Formatting.Indented };
+            var options = new JsonSerializerSettings() { 
+                TypeNameHandling = TypeNameHandling.All, 
+                Formatting = Newtonsoft.Json.Formatting.Indented };
             foreach (var consumerFile in consumerFiles)
             {
                 json = File.ReadAllText(consumerFile);

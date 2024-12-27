@@ -1,5 +1,5 @@
 ﻿using course.Entities.classes;
-using course.Entities.interfaces;
+using course;
 using course.interfaces;
 using course.Repositories.ClassRepository;
 using System;
@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using course.Entities;
 
 namespace course.Forms
 {

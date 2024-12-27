@@ -1,14 +1,14 @@
 {
-  "$type": "course.LegalConsumer, course",
+  "$type": "course.Entities.classes.LegalConsumer, course",
   "Contracts": null,
   "Id": 1,
-  "CompanyName": "ООАвр",
+  "CompanyName": "23фыв",
   "Address": {
-    "$type": "course.AddressRU, course",
-    "Country": "ыыв",
-    "Region": "ыфвыв",
-    "Locality": "ывывф",
-    "Street": "ыфвыфв",
-    "Construction": "ыыфв"
+    "$type": "course.Entities.classes.AddressRU, course",
+    "Country": "ыфв",
+    "Region": "фы",
+    "Locality": "ы",
+    "Street": "ы",
+    "Construction": "ы"
   }
 }

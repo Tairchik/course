@@ -1,6 +1,5 @@
-﻿using course.Entities.interfaces;
+﻿using course;
 using course.interfaces;
-using course.YourProjectNamespace.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace course
+namespace course.Entities.classes
 {
     internal class TransportRU : ITransport
     {
@@ -19,6 +19,12 @@ namespace course
         {
             CarName = carName;
             RegisterNumber = registerNumber;
+        
+        }
+
+        public override string ToString()
+        {
+            return $"{registerNumber} {carName}";
         }
 
         public string CarName 
@@ -51,10 +57,10 @@ namespace course
                 {
                     throw new ArgumentException("Неверный регистрационный номер транспорта");
                 }
-                else if (!Regex.IsMatch(value.ToUpper(), patternRUCar) && !Regex.IsMatch(value.ToUpper(), patternRUMotorcycle))
-                {
-                    throw new ArgumentException("Неверный регистрационный номер транспорта");
-                }
+               // else if (!Regex.IsMatch(value.ToUpper(), patternRUCar) && !Regex.IsMatch(value.ToUpper(), patternRUMotorcycle))
+               // {
+//throw new ArgumentException("Неверный регистрационный номер транспорта");
+                //}
                 else
                 {
                     registerNumber = value.ToUpper();

@@ -1,5 +1,5 @@
 ﻿using course.Entities.classes;
-using course.Entities.interfaces;
+using course;
 using course.interfaces;
 using course.Repositories.ClassRepository;
 using System;
