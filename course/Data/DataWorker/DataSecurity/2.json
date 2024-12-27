@@ -1,0 +1,49 @@
+{
+  "$type": "course.interfaces.Security, course",
+  "Id": 2,
+  "Address": {
+    "$type": "course.AddressRU, course",
+    "Country": "Россия",
+    "Region": "НСО",
+    "Locality": "Новосибирск",
+    "Street": "Красный проспект",
+    "Construction": "28"
+  },
+  "Weapon": {
+    "$type": "course.Weapon, course",
+    "Name": "Ak-74",
+    "RegisterNumber": "12333"
+  },
+  "LicenseToCarryWeapon": {
+    "$type": "course.LicenseToCarryWeapon, course",
+    "LicenseName": "12345678"
+  },
+  "Schedule": null,
+  "Name": "Петр",
+  "Surname": "Иванов",
+  "Patronymic": "Александрович",
+  "PostData": {
+    "$type": "course.Post, course",
+    "NamePost": "охранник",
+    "Salary": 32000.0
+  },
+  "BonusSalary": 1.0,
+  "TransportData": {
+    "$type": "course.TransportRU, course",
+    "CarName": "Supra",
+    "RegisterNumber": "A000AA"
+  },
+  "PassportData": {
+    "$type": "course.PassportRu, course",
+    "Series": "1234",
+    "Number": "123456"
+  },
+  "INNData": {
+    "$type": "course.INNIndividualPerson, course",
+    "Number": "123456789012"
+  },
+  "PensionFundData": {
+    "$type": "course.PensionFoundRU, course",
+    "Number": "123456789012"
+  }
+}

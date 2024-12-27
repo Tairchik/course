@@ -26,11 +26,15 @@ namespace course.Repositories.ClassRepository
         {
             string[] securityFiles = Directory.GetFiles(path);
             string json;
-            var options = new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.All, Formatting = Newtonsoft.Json.Formatting.Indented };
+            var options = new JsonSerializerSettings() 
+            { 
+                TypeNameHandling = TypeNameHandling.All, 
+                Formatting = Newtonsoft.Json.Formatting.Indented 
+            };
             foreach (var securityFile in securityFiles)
             {
                 json = File.ReadAllText(securityFile);
-                securities.Add(JsonConvert.DeserializeObject<ISecurity>(json, options));
+                securities.Add(JsonConvert.DeserializeObject<Security>(json, options));
             }
         }
         private void SaveData()

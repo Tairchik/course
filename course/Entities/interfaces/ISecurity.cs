@@ -8,6 +8,7 @@ namespace course.interfaces
 {
     internal interface ISecurity : IWorker
     {
+     
         IWeapon Weapon { get; set; }
         ILicenseToCarryWeapon LicenseToCarryWeapon { get; set; }
         ISchedule Schedule { get; set; }

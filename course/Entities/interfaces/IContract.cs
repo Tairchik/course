@@ -13,6 +13,8 @@ namespace course.interfaces
         DateTime DateEndContract { get; set; }
         IEvent EventData { get; set; }
         int SecurityNum { get;}
+        List<ISecurity> Securities { get; set; }
+
         //IConsumer Consumer { get; set; }
 
     }

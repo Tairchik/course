@@ -34,7 +34,7 @@ namespace course.Repositories.ClassRepository
                 contracts.Add(JsonConvert.DeserializeObject<IContract>(json, options));
             }
         }
-        private bool AnalyzerId(int id)
+        public bool AnalyzerId(int id)
         {
             foreach (var contract in contracts)
             {

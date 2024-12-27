@@ -1,0 +1,16 @@
+{
+  "$type": "course.interfaces.IndividualConsumer, course",
+  "Id": 1,
+  "Address": {
+    "$type": "course.AddressRU, course",
+    "Country": "ыы",
+    "Region": "12",
+    "Locality": "ы",
+    "Street": "2",
+    "Construction": "2"
+  },
+  "Contracts": null,
+  "Name": "ФЫВ",
+  "Surname": "вЫФ",
+  "Patronymic": "ыфв"
+}

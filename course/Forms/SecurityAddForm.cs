@@ -14,15 +14,20 @@ namespace course.Forms
 {
     public partial class SecurityAddForm : Form
     {
+        public event EventHandler<List<int>> GuardsAssigned; // Событие для передачи данных
+
         const string path = "..\\..\\Data\\DataWorker\\DataSecurity";
         private SecuritiesJsonRepository securitiesJsonRepository = new SecuritiesJsonRepository(path);
         private DateTime dateStart;
         private DateTime dateEnd;
-        public SecurityAddForm(DateTime dateEnd, DateTime dateStart)
+        private List<int> listOfId;
+        private int numOfSecurity;
+        public SecurityAddForm(DateTime dateEnd, DateTime dateStart, int numOfSecurity)
         {
             InitializeComponent();
             this.dateStart = dateStart;
             this.dateEnd = dateEnd;
+            this.numOfSecurity = numOfSecurity; 
             LoadFilesIntoListBox();
         }
 
@@ -48,9 +53,30 @@ namespace course.Forms
         }
         private void BtnRemove_Click(object sender, EventArgs e) // Назначить охранника
         {
-            if (listBox.SelectedItem == null)
+            if (listBox.SelectedItem != null)
             {
                 MessageBox.Show("Пожалуйста, выберите элемент для удаления графика.");
+                int select = int.Parse(listBox.SelectedItem.ToString().Split('-')[1]);
+                ISecurity security = securitiesJsonRepository.GetById(select);
+                try
+                {
+                    ISchedule schedule = security.Schedule;
+                    for (int day = 0; day <= (dateEnd - dateEnd).Days; day++)
+                    {
+                        schedule.DeleteDay(dateStart.AddDays(day));
+                    }
+                    security.Schedule = schedule;
+                    listOfId.Remove(security.Id);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка загрузки файлов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Ошибка: выберете элемент", "Ошибка загрузки файлов", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
         private void BtnSelect_Click(object sender, EventArgs e) // Назначить охранника
@@ -66,27 +92,38 @@ namespace course.Forms
                 ISecurity security = securitiesJsonRepository.GetById(select);
                 try
                 {
-                    ISchedule schedule = new Schedule();
+                    ISchedule schedule = security.Schedule;
                     for (int day = 0; day <= (dateEnd - dateEnd).Days; day++) 
                     {
                         schedule.Add(dateStart.AddDays(day));
+                     
                     }
                     security.Schedule = schedule;
-
+                    listOfId.Add(security.Id);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка загрузки файлов", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }                
-                
-
             }
         }
 
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            
+            if (listOfId.Count < numOfSecurity)
+            {
+                MessageBox.Show($"Ошибка: требуется еще {numOfSecurity - listOfId.Count} охранников(к)", "Ошибка сохранения графики охранникам", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                // Вызываем событие для передачи данных в родительскую форму
+                GuardsAssigned?.Invoke(this, listOfId);
+
+                // Закрываем форму
+                this.Close();
+            }
         }
     }
 }

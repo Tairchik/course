@@ -16,17 +16,38 @@ namespace course.Forms
 {
     public partial class CreateIndividualEventForm : Form
     {
+      
         private IIndividualConsumer consumer;
         private ISingleEvent singleEvent;
+        private List<ISecurity> securities;
+
         const string directoryPath = "..\\..\\Data\\DataContract";
-        private readonly ContractsRepository contractsRepository = new ContractsRepository(directoryPath);
         const string directoryIndividualPath = "..\\..\\Data\\DataConsumer\\DataIndividual";
-        private IndividualConsumerJsonRepository _individualFileRepository = new IndividualConsumerJsonRepository(directoryIndividualPath);
-        public CreateIndividualEventForm(int id)
+        const string directorySecurity = "..\\..\\Data\\DataWorker\\DataSecurity";
+
+        private readonly ContractsRepository contractsRepository = new ContractsRepository(directoryPath);
+        private readonly IndividualConsumerJsonRepository _individualFileRepository = new IndividualConsumerJsonRepository(directoryIndividualPath);
+        private readonly SecuritiesJsonRepository securityRepository = new SecuritiesJsonRepository(directorySecurity);
+
+        // Обработчик события
+        private void Form_GuardsAssigned(object sender, List<int> idSecurities)
+        {
+            // Обрабатываем полученные данные (например, сохраняем их в SingleEvent или другом объекте)
+            if (singleEvent != null)
+            {
+                List<ISecurity> securities = new List<ISecurity>();
+                foreach (int idSecurity in idSecurities) 
+                {
+                    securities.Add(securityRepository.GetById(idSecurity));
+                }
+                this.securities = securities; // Допустим, у SingleEvent есть поле AssignedGuards
+            }
+        }
+        public CreateIndividualEventForm(int idConsumer)
         {
             try
             {
-                this.consumer = _individualFileRepository.GetById(id);
+                this.consumer = _individualFileRepository.GetById(idConsumer);
                 InitializeComponent();
                 AddToComboBoxEnums();
             }
@@ -74,7 +95,10 @@ namespace course.Forms
             {
                 InitSingleEvent();
                 IContract contract = new ContractClass(contractsRepository.GetUnicumId, DateTime.Now, DateTime.Parse(txtEndDate.Text), singleEvent);
+                contract.Securities = this.securities;
                 consumer.AddContract(contract);
+
+                
 
                 _individualFileRepository.Update(consumer);
                 //CreateContractForm form = new CreateContractForm(contract.ID);
@@ -127,11 +151,12 @@ namespace course.Forms
         private void BtnAssignGuards_Click(object sender, EventArgs e)
         {
             InitSingleEvent();
-            SecurityAddForm form = new SecurityAddForm(DateTime singleEvent.DateEnd, DateTime singleEvent.DateStart);
 
-            form.Show();
+            // Создаем дочернюю форму и подписываемся на событие
+            SecurityAddForm form = new SecurityAddForm(singleEvent.DateEnd, singleEvent.DateStart, singleEvent.CalculateAmount());
+            form.GuardsAssigned += Form_GuardsAssigned; // Подписка на событие
 
-            MessageBox.Show("Переход к назначению охранников.");
+            form.ShowDialog(); // Используем ShowDialog, чтобы дождаться завершения
         }
 
         private Label lblStartDate;
