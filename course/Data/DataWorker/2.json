@@ -1,0 +1,28 @@
+{
+  "$type": "course.Entities.classes.Secur, course",
+  "Id": 2,
+  "Address": {
+    "$type": "course.Entities.classes.AddressRU, course",
+    "Country": "Rus",
+    "Region": "NSO",
+    "Locality": "sd",
+    "Street": "no",
+    "Construction": "12"
+  },
+  "Weapon": null,
+  "LicenseToCarryWeapon": null,
+  "Schedule": null,
+  "Name": "Tair",
+  "Surname": "sadas",
+  "Patronymic": "sdsd",
+  "PostData": {
+    "$type": "course.Entities.classes.Post, course",
+    "NamePost": "pop",
+    "Salary": 100000
+  },
+  "BonusSalary": 0.0,
+  "TransportData": null,
+  "PassportData": null,
+  "INNData": null,
+  "PensionFundData": null
+}

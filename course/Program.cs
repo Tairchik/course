@@ -1,7 +1,6 @@
 ﻿using course.Entities.classes;
 using course;
 using course.interfaces;
-
 using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
@@ -22,14 +21,18 @@ namespace course
         static void Main()
         {
            
+            ISecurity security = new Secur(2, "Tair", "sadas", "sdsd",  
+                new Post("pop", 100000), new AddressRU("Rus", "NSO", "sd", "no", "12"));
 
-            
-            
+            string path = "..\\..\\Data\\DataWorker";
+            SecuritiesJsonRepository sec = new SecuritiesJsonRepository(path);
+
+            sec.Add(security);
 
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManagerForm());
+            // Application.EnableVisualStyles();
+            // Application.SetCompatibleTextRenderingDefault(false);
+            // Application.Run(new ManagerForm());
         }
     }
 }

@@ -10,12 +10,12 @@ namespace course.Entities.classes
     internal class Post : IPost
     {
         private string namePost;
-        private decimal salary;
+        private int salary;
 
-        public Post(string namePost, decimal salary) 
+        public Post(string _namePost, int _salary) 
         {
-            NamePost = namePost;
-            Salary = salary;
+            NamePost = _namePost;
+            Salary = _salary;
         }
         public string NamePost
         {
@@ -29,12 +29,12 @@ namespace course.Entities.classes
         {
             return $"{namePost} {salary}";
         }
-        public decimal Salary
+        public int Salary
         {
             get  { return salary; }
             set
             {
-                if (salary.CompareTo(0m) < 0)
+                if (value < 0)
                 {
                     throw new ArgumentException("Неверный оклад");
                 }

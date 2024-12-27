@@ -21,7 +21,7 @@ namespace course.Entities.classes
             get { return bonusSalary; }
             set 
             { 
-                if (value.CompareTo(0) < 0) 
+                if (value < 0) 
                 {
                     throw new ArgumentException("Неверное значение надбавки");
                 }

@@ -57,6 +57,7 @@
     <Compile Include="Entities\classes\ContractPaymentForObject.cs" />
     <Compile Include="Entities\classes\MultiEvent.cs" />
     <Compile Include="Entities\classes\ScheduleSecurity.cs" />
+    <Compile Include="Entities\classes\Secur.cs" />
     <Compile Include="Entities\classes\SingleEvent.cs" />
     <Compile Include="Entities\enums\EventType.cs" />
     <Compile Include="Entities\classes\INNIndividualPerson.cs" />
