@@ -80,7 +80,7 @@ namespace course.Forms
                 }
                 else if (_legalFileRepository.GetById(selectList) != null && selectIorL == "L")
                 {
-                    ContractLegalForm editFrom = new ContractLegalForm();
+                    ContractLegalForm editFrom = new ContractLegalForm(selectList);
                     editFrom.Show();
                     this.Hide();
                 }

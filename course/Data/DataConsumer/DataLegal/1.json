@@ -2,13 +2,13 @@
   "$type": "course.Entities.classes.LegalConsumer, course",
   "Contracts": null,
   "Id": 1,
-  "CompanyName": "23фыв",
+  "CompanyName": "ООО",
   "Address": {
     "$type": "course.Entities.classes.AddressRU, course",
-    "Country": "ыфв",
-    "Region": "фы",
-    "Locality": "ы",
-    "Street": "ы",
-    "Construction": "ы"
+    "Country": "Россия",
+    "Region": "ывцуцйу",
+    "Locality": "выв",
+    "Street": "выв",
+    "Construction": "ыв"
   }
 }

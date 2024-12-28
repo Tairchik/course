@@ -53,15 +53,10 @@ namespace course.Repositories.ClassRepository
         }
         public void Add(ISecurity security)
         {
-            if (AnalyzerId(security.Id))
-            {
-                throw new ArgumentException($"Заказчик с таким id:{security.Id} уже существует");
-            }
-            else
-            {
-                securities.Add(security);
-                SaveData();
-            }
+
+               securities.Add(security);
+               SaveData();
+            
         }
         public List<ISecurity> GetAll()
         {

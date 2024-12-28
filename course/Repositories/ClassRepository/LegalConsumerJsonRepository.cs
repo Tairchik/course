@@ -101,7 +101,7 @@ namespace course.Repositories.ClassRepository
         {
             var consumer = consumers.FirstOrDefault(c => c.Id == id);
             if (consumer == null)
-                throw new Exception($"Заказчик {consumer.CompanyName + "-" + id} не найден");
+                throw new Exception($"Заказчик {consumer.CompanyName} не найден");
             return consumer;
         }
         public void Update(ILegalConsumer consumer)

@@ -1,4 +1,5 @@
-﻿using course.interfaces;
+﻿using course.Entities.classes;
+using course.interfaces;
 using course.Repositories.ClassRepository;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace course.Forms
         private SecuritiesJsonRepository securitiesJsonRepository = new SecuritiesJsonRepository(path);
         private DateTime dateStart;
         private DateTime dateEnd;
-        private List<int> listOfId;
+        private List<int> listOfId = new List<int> { };
         private int numOfSecurity;
         public SecurityAddForm(DateTime dateEnd, DateTime dateStart, int numOfSecurity)
         {
@@ -55,12 +56,18 @@ namespace course.Forms
         {
             if (listBox.SelectedItem != null)
             {
-                MessageBox.Show("Пожалуйста, выберите элемент для удаления графика.");
+              
                 int select = int.Parse(listBox.SelectedItem.ToString().Split('-')[1]);
                 ISecurity security = securitiesJsonRepository.GetById(select);
                 try
                 {
-                    ISchedule schedule = security.Schedule;
+                    ISchedule schedule = new Schedule();
+                    if (security.Schedule != null)
+                    {
+                        schedule = security.Schedule;
+                    }
+
+
                     for (int day = 0; day <= (dateEnd - dateEnd).Days; day++)
                     {
                         schedule.DeleteDay(dateStart.AddDays(day));
@@ -92,7 +99,12 @@ namespace course.Forms
                 ISecurity security = securitiesJsonRepository.GetById(select);
                 try
                 {
-                    ISchedule schedule = security.Schedule;
+                    ISchedule schedule = new Schedule();
+                    if(security.Schedule != null)
+                    {
+                        schedule = security.Schedule;
+                    }
+
                     for (int day = 0; day <= (dateEnd - dateEnd).Days; day++) 
                     {
                         schedule.Add(dateStart.AddDays(day));

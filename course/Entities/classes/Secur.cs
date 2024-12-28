@@ -28,14 +28,14 @@ namespace course.Entities.classes
             private int id;
 
 
-        public Secur(int id, string name, string surname, string patronymic, IPost post, IAddress address)
+        public Secur(int id, string name, string surname, string patronymic, IAddress address)
         {
             Id = id;
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
             Address = address;
-            PostData = post;
+
         }
 
         public int Id
@@ -146,14 +146,8 @@ namespace course.Entities.classes
                 get { return postData; }
                 set
                 {
-                    if (value == null)
-                    {
-                        throw new ArgumentException("Неверная Должность");
-                    }
-                    else
-                    {
                         postData = value;
-                    }
+
                 }
             }
             public decimal BonusSalary
@@ -184,14 +178,7 @@ namespace course.Entities.classes
                 get { return passportData; }
                 set
                 {
-                    if (value == null)
-                    {
-                        throw new ArgumentException("Неверные паспорта");
-                    }
-                    else
-                    {
-                        passportData = value;
-                    }
+                      passportData = value;
                 }
             }
             public IINN INNData
@@ -199,14 +186,9 @@ namespace course.Entities.classes
                 get { return innData; }
                 set
                 {
-                    if (value == null)
-                    {
-                        throw new ArgumentException("Неверный ИНН");
-                    }
-                    else
-                    {
+
                         innData = value;
-                    }
+
                 }
             }
             public IPensionFund PensionFundData
@@ -214,14 +196,9 @@ namespace course.Entities.classes
                 get { return pensionFundData; }
                 set
                 {
-                    if (value == null)
-                    {
-                        throw new ArgumentException("Неверный ПФР");
-                    }
-                    else
-                    {
+
                         pensionFundData = value;
-                    }
+
                 }
             }
         }

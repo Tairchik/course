@@ -3,14 +3,17 @@
   "Id": 1,
   "Address": {
     "$type": "course.Entities.classes.AddressRU, course",
-    "Country": "ва",
-    "Region": "ва",
-    "Locality": "ва",
-    "Street": "ва",
-    "Construction": "выа"
+    "Country": "выфв",
+    "Region": "ывфыв",
+    "Locality": "выф",
+    "Street": "ыфвыфв",
+    "Construction": "фввффыв"
   },
-  "Contracts": null,
-  "Name": "выа",
-  "Surname": "выа",
-  "Patronymic": "вававава"
+  "Contracts": {
+    "$type": "System.Collections.Generic.List`1[[course.interfaces.IContract, course]], mscorlib",
+    "$values": []
+  },
+  "Name": "вфыв",
+  "Surname": "ыфв",
+  "Patronymic": "вфывфыв"
 }

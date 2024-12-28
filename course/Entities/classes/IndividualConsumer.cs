@@ -14,7 +14,7 @@ namespace course.Entities.classes
         private string surname;
         private string patronymic;
         private IAddress address;
-        private List<IContract> contracts;
+        private List<IContract> contracts = new List<IContract> { };
         private int id;
 
 

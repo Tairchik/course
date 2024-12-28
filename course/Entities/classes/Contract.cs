@@ -136,7 +136,7 @@ namespace course.Entities.classes
             }
             set
             {
-                if (value < DateTime.Now)
+                if (value.Day < DateTime.Now.Day)
                 {
                     throw new ArgumentException("Неверное значение даты начала контракта");
                 }

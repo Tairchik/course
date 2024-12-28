@@ -95,9 +95,9 @@ namespace course.Forms
             try
             {
                 InitSingleEvent();
-                IContract contract = new ContractClass(contractsRepository.GetUnicumId, DateTime.Now, DateTime.Parse(txtEndDate.Text), singleEvent);
-                contract.Securities = this.securities;
-                consumer.AddContract(contract);
+                IContract contract1 = new ContractClass(contractsRepository.GetUnicumId, DateTime.Now, DateTime.Parse(txtEndDate.Text), singleEvent);
+                contract1.Securities = this.securities;
+                consumer.AddContract(contract1);
 
                 
 
@@ -152,12 +152,19 @@ namespace course.Forms
         private void BtnAssignGuards_Click(object sender, EventArgs e)
         {
             InitSingleEvent();
+            try
+            {
+                // Создаем дочернюю форму и подписываемся на событие
+                SecurityAddForm form = new SecurityAddForm(singleEvent.DateEnd, singleEvent.DateStart, singleEvent.CalculateAmount());
+                form.GuardsAssigned += Form_GuardsAssigned; // Подписка на событие
 
-            // Создаем дочернюю форму и подписываемся на событие
-            SecurityAddForm form = new SecurityAddForm(singleEvent.DateEnd, singleEvent.DateStart, singleEvent.CalculateAmount());
-            form.GuardsAssigned += Form_GuardsAssigned; // Подписка на событие
+                form.ShowDialog(); // Используем ShowDialog, чтобы дождаться завершения
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            form.ShowDialog(); // Используем ShowDialog, чтобы дождаться завершения
+            }
         }
 
         private Label lblStartDate;
